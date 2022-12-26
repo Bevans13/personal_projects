@@ -1,4 +1,3 @@
-package ArkTrackerV2;
 
 public class TestClass {
     
