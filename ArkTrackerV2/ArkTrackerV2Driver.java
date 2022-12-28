@@ -1,5 +1,7 @@
 import javax.swing.*;
 
+import Creatures.Creature;
+
 public class ArkTrackerV2Driver {
     
     private static JFrame arkTrackerFrame = new JFrame("Ark Tracker V2");
@@ -7,9 +9,12 @@ public class ArkTrackerV2Driver {
     private static UserInterface mainMenu = new UserInterface();
     
     public static void main(String[] args) {
-        SaveFileManager saveFileManager = new SaveFileManager();
-        initWindow(mainMenu);
+        //temp  initWindow(mainMenu);
         System.out.println("Testing Main Method");
+        //Creature testCreature1 = new Creature();
+        //SaveFileManager.writeSaveDate(testCreature1);
+        SaveFileManager.readSaveData();
+        SaveFileManager.showData(SaveFileManager.getLoadedCreature());
         
     } 
     
