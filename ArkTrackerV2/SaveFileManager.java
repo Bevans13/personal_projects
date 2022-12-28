@@ -16,7 +16,7 @@ public class SaveFileManager {
     public static void readSaveData(){
         try {
             
-            FileInputStream fileIn = new FileInputStream("/tmp/Creatures.ser");
+            FileInputStream fileIn = new FileInputStream("TestSave.txt");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             LoadedCreature = (Creature) in.readObject();
             in.close();
@@ -33,7 +33,7 @@ public class SaveFileManager {
     
     public static void writeSaveDate(Object o){
         try {
-            FileOutputStream fileOut = new FileOutputStream("/tmp/Creatures.ser");
+            FileOutputStream fileOut = new FileOutputStream("TestSave.txt");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(o);
             out.close();

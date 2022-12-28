@@ -1,6 +1,6 @@
+import java.nio.file.*;
 import javax.swing.*;
-
-import Creatures.Creature;
+import Creatures.*;
 
 public class ArkTrackerV2Driver {
     
@@ -11,10 +11,16 @@ public class ArkTrackerV2Driver {
     public static void main(String[] args) {
         //temp  initWindow(mainMenu);
         System.out.println("Testing Main Method");
-        //Creature testCreature1 = new Creature();
-        //SaveFileManager.writeSaveDate(testCreature1);
+        
+        Creature testCreature1 = new Creature();
+        SaveFileManager.writeSaveDate(testCreature1);
+        
+         
         SaveFileManager.readSaveData();
         SaveFileManager.showData(SaveFileManager.getLoadedCreature());
+        Path path = Paths.get("TestSave.ser");
+        System.out.println(path.toAbsolutePath().toString());
+        path.getParent();
         
     } 
     

@@ -9,8 +9,8 @@ import javax.swing.*;
 
 public class World extends JPanel implements ActionListener{
 
-    private static String FILENAME;
-    private static String worldName;
+    private String FILENAME;
+    private String worldName;
 
     private final int WORLD_WIDTH = 1200;
     private final int WORLD_HEIGHT = 690;
@@ -20,10 +20,6 @@ public class World extends JPanel implements ActionListener{
     private static JButton addCreatureButton = new JButton("Add Creature");
     private static JButton deleteCreatureButton = new JButton("Delete Creature");
     private static JButton viewCreaturesButton = new JButton("View Creatures");
-
-    static{
-        
-    }
 
     public World() {
         setPreferredSize(new Dimension(WORLD_WIDTH,WORLD_HEIGHT));
