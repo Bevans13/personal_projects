@@ -5,8 +5,8 @@ import java.awt.*;
 public class GameFrame extends JFrame implements ActionListener {
 
     CardLayout cardLayout;
-    UserInterface userInterface;
-    
+    UserInterfacePanel userInterfacePanel;
+
 
 
 
