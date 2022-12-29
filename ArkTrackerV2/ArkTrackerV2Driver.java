@@ -1,4 +1,3 @@
-import java.nio.file.*;
 import javax.swing.*;
 import Creatures.*;
 
@@ -8,6 +7,8 @@ public class ArkTrackerV2Driver {
    
     private static UserInterface mainMenu = new UserInterface();
 
+    //instantiates all applicable worlds, 
+    //World() Constructor has built in methods to read prior save data
     private static World theIslandWorld = new World("The Island","THE_ISLAND_SAVE.ser");
     private static World theCenteWorld = new World("The Center", "THE_CENTER_SAVE.ser");
     private static World scorchedEarthWorld = new World("Scorched Earth", "SCORCHED_EARTH_SAVE.ser");
@@ -22,19 +23,11 @@ public class ArkTrackerV2Driver {
     private static World fjordurWorld = new World("Fjordur", "FJORDUR_SAVE.ser");
     
     public static void main(String[] args) {
-        //temp  initWindow(mainMenu);
+        initWindow(mainMenu);
         System.out.println("Testing Main Method");
         
-        Creature testCreature1 = new Creature();
-        SaveFileManager.writeSaveDate(testCreature1);
-        
+        // SaveFileManager.writeSaveDate();
          
-        SaveFileManager.readSaveData();
-        SaveFileManager.showData(SaveFileManager.getLoadedCreature());
-        Path path = Paths.get("TestSave.ser");
-        System.out.println(path.toAbsolutePath().toString());
-        path.getParent();
-        
     } 
 
     public static void initWindow(JPanel panel) {

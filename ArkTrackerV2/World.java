@@ -2,7 +2,6 @@ import Creatures.*;
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 
 import javax.swing.*;
 
@@ -13,8 +12,10 @@ public class World extends JPanel implements ActionListener{
     private String worldName;
 
     private static final int WORLD_WIDTH = (int) UserInterface.getScreensize().getWidth();
+    private int buttonWidth = WORLD_WIDTH/8;
     private static final int WORLD_HEIGHT = (int) UserInterface.getScreensize().getHeight();
-    
+    private int buttonHeight = WORLD_HEIGHT/12;
+
     private static ArrayList<Creature> tames = new ArrayList<>();
     
     private static JButton addCreatureButton = new JButton("Add Creature");
@@ -24,6 +25,7 @@ public class World extends JPanel implements ActionListener{
     public World() {
         setPreferredSize(new Dimension(WORLD_WIDTH,WORLD_HEIGHT));
         setBackground(Color.green);
+        SaveFileManager.readSaveData(this);
     }
 
     public World(String wn, String fn){
@@ -31,6 +33,7 @@ public class World extends JPanel implements ActionListener{
         FILENAME = fn;
         setPreferredSize(new Dimension(WORLD_WIDTH,WORLD_HEIGHT));
         setBackground(Color.green);
+        SaveFileManager.readSaveData(this);
         
         
     }
@@ -48,9 +51,9 @@ public class World extends JPanel implements ActionListener{
     }
 
     private void drawButtons(){
-        addCreatureButton.setBounds((WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
-        deleteCreatureButton.setBounds((2*WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
-        viewCreaturesButton.setBounds((WORLD_WIDTH)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
+        addCreatureButton.setBounds((WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2), buttonWidth, buttonHeight);
+        deleteCreatureButton.setBounds((2*WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2), buttonWidth, buttonHeight);
+        viewCreaturesButton.setBounds((WORLD_WIDTH)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2), buttonWidth, buttonHeight);
         
         addCreatureButton.addActionListener(this);
         deleteCreatureButton.addActionListener(this);

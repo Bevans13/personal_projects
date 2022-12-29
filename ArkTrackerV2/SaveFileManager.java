@@ -1,10 +1,12 @@
 import java.io.*;
+import java.util.ArrayList;
 
 import Creatures.*;
 
 public class SaveFileManager {
 
     private static Creature LoadedCreature = null;
+    private static ArrayList<Creature> loadTames;
 
     public SaveFileManager(){
 
@@ -15,27 +17,29 @@ public class SaveFileManager {
             
             FileInputStream fileIn = new FileInputStream(loadingWorld.getFILENAME());
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            LoadedCreature = (Creature) in.readObject();
+            //unneeded?  LoadedCreature = (Creature) in.readObject();
+            loadTames = (ArrayList<Creature>) in.readObject();
+            loadingWorld.setTames(loadTames);
             in.close();
             fileIn.close();
          } catch (IOException i) {
             i.printStackTrace();
             return;
          } catch (ClassNotFoundException cnf) {
-            System.out.println("Employee class not found");
+            System.out.println("Creature class not found");
             cnf.printStackTrace();
             return;
          }
     }
     
-    public static void writeSaveDate(Object o){
+    public static void writeSaveDate(World savingWorld){
         try {
-            FileOutputStream fileOut = new FileOutputStream("TestSave.txt");
+            FileOutputStream fileOut = new FileOutputStream(savingWorld.getFILENAME());
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(o);
+            out.writeObject(savingWorld.getTames());
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in /tmp/Creatures.ser");
+            System.out.printf("Serialized data is saved");
          } catch (IOException i) {
             i.printStackTrace();
          } 
@@ -47,5 +51,9 @@ public class SaveFileManager {
 
     public static Creature getLoadedCreature() {
         return LoadedCreature;
+    }
+
+    public static ArrayList<Creature> getLoadTames() {
+        return loadTames;
     }
 }
