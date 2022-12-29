@@ -45,6 +45,7 @@ public class UserInterface extends JPanel implements ActionListener {
             FallOutEquestria.changeToNewPanel(FallOutEquestria.getPlayerEditor());
             FallOutEquestria.getPlayerEditorButton().setEnabled(false);
         }
+        repaint();
     }
 
     public int getUI_WIDTH() {

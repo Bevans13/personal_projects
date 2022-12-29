@@ -1,16 +1,22 @@
 import javax.swing.*;
+
 import Creatures.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class ArkTrackerV2Driver {
+public class ArkTrackerV2Driver extends JFrame implements ActionListener {
     
-    private static JFrame arkTrackerFrame = new JFrame("Ark Tracker V2");
-   
-    private static UserInterface mainMenu = new UserInterface();
-
+    private static CardLayout screenPages = new CardLayout();
+    
+    private static UserInterface userInterface = new UserInterface();
+    private static JPanel mainPanel = new JPanel(screenPages);
+    
+    private static ArkTrackerV2Driver arkTrackerFrame = new ArkTrackerV2Driver();
+    
     //instantiates all applicable worlds, 
     //World() Constructor has built in methods to read prior save data
     private static World theIslandWorld = new World("The Island","THE_ISLAND_SAVE.ser");
-    private static World theCenteWorld = new World("The Center", "THE_CENTER_SAVE.ser");
+    private static World theCenterWorld = new World("The Center", "THE_CENTER_SAVE.ser");
     private static World scorchedEarthWorld = new World("Scorched Earth", "SCORCHED_EARTH_SAVE.ser");
     private static World ragnarokWorld = new World("Ragnarok", "RAGNAROK_SAVE.ser");
     private static World aberrationWorld = new World("Aberration", "ABERRATION_SAVE.ser");
@@ -22,39 +28,77 @@ public class ArkTrackerV2Driver {
     private static World lostIslandWorld = new World("Lost Island", "LOST_ISLAND_SAVE.ser");
     private static World fjordurWorld = new World("Fjordur", "FJORDUR_SAVE.ser");
     
+    static JButton theIslandSelectionJButton= new JButton("The Island");
+    static JButton theCenterSelectionJButton = new JButton("The Center");
+    static JButton scorchedEarthSelectionJButton = new JButton("Scorched Earth");
+    static JButton ragnarokSelectionJButton = new JButton("Ragnarok");
+    static JButton aberrationSelectionJButton = new JButton("Abberation");
+    static JButton extinctionSelectionJButton = new JButton("Extinction");
+    static JButton valgueroSelectionJButton = new JButton("Valguero");
+    static JButton genesisPartOneSelectionJButton = new JButton("Genesis: Part 1");
+    static JButton genesisPartTwoSelectionJButton = new JButton("Genesis: Part 2");
+    static JButton crystalIslesSelectionJButton = new JButton("Crystal Isles");
+    static JButton lostIslandSelectionJButton = new JButton("Lost Island");
+    static JButton fjordurSelectionJButton = new JButton("Fjordur");
+    
     public static void main(String[] args) {
-        initWindow(mainMenu);
+        initWindow();
         System.out.println("Testing Main Method");
         
         // SaveFileManager.writeSaveDate();
          
     } 
 
-    public static void initWindow(JPanel panel) {
+    public ArkTrackerV2Driver() {
+        super();
+    }
+
+    public static void initWindow() {
         arkTrackerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        arkTrackerFrame.add(panel);
+        mainPanel.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        arkTrackerFrame.add(mainPanel);
         arkTrackerFrame.paintComponents(null);
         arkTrackerFrame.setResizable(true);
         arkTrackerFrame.pack();
         arkTrackerFrame.setLocationRelativeTo(null);
         arkTrackerFrame.setVisible(true);
-        
+        mainPanel.add(userInterface, "User Interface");
+        mainPanel.add(theCenterWorld, theCenterWorld.getWorldName());
+        //userInterface.add(theCenterWorld, "The Center");
+        //userInterface.add(theIslandWorld, "The Island");
     }
     
-    public static void clearWindow(){
-        arkTrackerFrame.removeAll();
+    public static void changeToNewPanel(JPanel panel){
+        /*arkTrackerFrame.remove(userInterface);
+        arkTrackerFrame.repaint();
+        arkTrackerFrame.revalidate();
+
+        arkTrackerFrame.add(panel);
+        arkTrackerFrame.repaint();
+        arkTrackerFrame.revalidate();*/
+
+        //screenPages.show(mainPanel, ((World) panel).getWorldName());
+        screenPages.show(mainPanel, null);
+    }
+
+    public static CardLayout getScreenPages() {
+        return screenPages;
     }
 
     public static JFrame getArkTrackerFrame() {
         return arkTrackerFrame;
     }
 
+    public static UserInterface getUserInterface() {
+        return userInterface;
+}
+
     public static World getTheIslandWorld() {
         return theIslandWorld;
     }
 
-    public static World getTheCenteWorld() {
-        return theCenteWorld;
+    public static World getTheCenterWorld() {
+        return theCenterWorld;
     }
 
     public static World getScorchedEarthWorld() {
@@ -96,6 +140,25 @@ public class ArkTrackerV2Driver {
     public static World getFjordurWorld() {
         return fjordurWorld;
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        changeToNewPanel(theCenterWorld);
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

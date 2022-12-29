@@ -109,7 +109,6 @@ public class FallOutEquestria {
     }
 
     private static void initWindow(){
-        window.removeAll();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.add(userInterface);
         window.setResizable(false);
@@ -126,7 +125,6 @@ public class FallOutEquestria {
         window.remove(userInterface);
         window.add(panel);
         window.pack();
-        panel.repaint();
     }
 
     //V2 Simplified into the initWindow() by adding a remove all in the 
