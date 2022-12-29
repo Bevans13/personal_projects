@@ -4,19 +4,16 @@ import Creatures.*;
 
 public class SaveFileManager {
 
-    private static BufferedReader saveFileBufferedReader;
-    private static BufferedWriter saveFileBufferedWriter;
-
     private static Creature LoadedCreature = null;
 
     public SaveFileManager(){
 
     }        
     
-    public static void readSaveData(){
+    public static void readSaveData(World loadingWorld){
         try {
             
-            FileInputStream fileIn = new FileInputStream("TestSave.txt");
+            FileInputStream fileIn = new FileInputStream(loadingWorld.getFILENAME());
             ObjectInputStream in = new ObjectInputStream(fileIn);
             LoadedCreature = (Creature) in.readObject();
             in.close();

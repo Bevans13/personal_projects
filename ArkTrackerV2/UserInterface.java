@@ -86,7 +86,39 @@ private void drawButtons(Graphics g) {
 public void actionPerformed(ActionEvent e) {
     //Just some test actions to ensure the Action is occurring
     if (e.getSource()==theIslandSelectionJButton) {
-        setBackground(Color.ORANGE);
+        setBackground(Color.ORANGE);   
+    }
+    if (e.getSource()==theCenterSelectionJButton) {
+        
+    }
+    if (e.getSource()==scorchedEarthSelectionJButton) {
+        
+    }
+    if (e.getSource()==ragnarokSelectionJButton) {
+        
+    }
+    if (e.getSource()==aberrationSelectionJButton) {
+        
+    }
+    if (e.getSource()==extinctionSelectionJButton) {
+        
+    }
+    if (e.getSource()==valgueroSelectionJButton) {
+        
+    }
+    if (e.getSource()==genesisPartOneSelectionJButton) {
+        
+    }
+    if (e.getSource()==genesisPartTwoSelectionJButton) {
+        
+    }
+    if (e.getSource()==crystalIslesSelectionJButton) {
+        
+    }
+    if (e.getSource()==lostIslandSelectionJButton) {
+        
+    }
+    if (e.getSource()==fjordurSelectionJButton) {
         
     }
     repaint();
@@ -98,6 +130,10 @@ public static int getUI_HEIGHT() {
 
 public static int getUI_WIDTH() {
     return UI_WIDTH;
+}
+
+public static Dimension getScreensize() {
+    return screensize;
 }
 
 }

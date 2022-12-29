@@ -12,8 +12,8 @@ public class World extends JPanel implements ActionListener{
     private String FILENAME;
     private String worldName;
 
-    private final int WORLD_WIDTH = 1200;
-    private final int WORLD_HEIGHT = 690;
+    private static final int WORLD_WIDTH = (int) UserInterface.getScreensize().getWidth();
+    private static final int WORLD_HEIGHT = (int) UserInterface.getScreensize().getHeight();
     
     private static ArrayList<Creature> tames = new ArrayList<>();
     
@@ -49,10 +49,11 @@ public class World extends JPanel implements ActionListener{
 
     private void drawButtons(){
         addCreatureButton.setBounds((WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
-        addCreatureButton.addActionListener(this);
         deleteCreatureButton.setBounds((2*WORLD_WIDTH/3)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
-        deleteCreatureButton.addActionListener(this);
         viewCreaturesButton.setBounds((WORLD_WIDTH)-(3*WORLD_WIDTH/3/4),WORLD_HEIGHT-(WORLD_HEIGHT/2),WORLD_WIDTH/3/2,WORLD_HEIGHT/3/2);
+        
+        addCreatureButton.addActionListener(this);
+        deleteCreatureButton.addActionListener(this);
         viewCreaturesButton.addActionListener(this);
         
         this.add(addCreatureButton);
