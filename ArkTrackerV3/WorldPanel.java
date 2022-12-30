@@ -5,16 +5,14 @@ import javax.swing.*;
 public class WorldPanel extends JPanel {
 
     private JLabel label;
-    private static JButton returnButton;
-
+    private static JButton returnButton = new JButton("Return");
     
     public WorldPanel() {
         super();
         setBackground(Color.RED);
         label = new JLabel("World Panel");
-        returnButton = new JButton("Return");
         paint(getGraphics());
-        // setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
+
     }
     
     @Override
