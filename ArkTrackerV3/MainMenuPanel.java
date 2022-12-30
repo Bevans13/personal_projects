@@ -4,10 +4,14 @@ import javax.swing.*;
 
 public class MainMenuPanel extends JPanel{
     
+    private JLabel label;
+    private static JButton returnButton;
+
     public MainMenuPanel() {
         super();
         setBackground(Color.BLUE);
-        add(new JLabel("Main Menu"));
+        JLabel label = new JLabel("Main Menu");
+        add(label);
         //setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
 
     }
