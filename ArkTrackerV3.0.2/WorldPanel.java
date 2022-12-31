@@ -23,6 +23,8 @@ public class WorldPanel extends JPanel {
         super();
         this.worldName = worldName;
         setBackground(Color.ORANGE);
+        label = new JLabel(this.worldName);
+        paint(getGraphics());
     }
 
     @Override

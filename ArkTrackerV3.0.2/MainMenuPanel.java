@@ -6,6 +6,7 @@ public class MainMenuPanel extends JPanel{
     
     private static JLabel label;
     private static JButton theIslandMenuButton;
+    private static JButton theCenterMenuButton;
 
     private static int MainMenuPanelWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     private static int MainMenuPanelHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -17,6 +18,7 @@ public class MainMenuPanel extends JPanel{
         setBackground(Color.BLUE);
         label = new JLabel("Main Menu");
         theIslandMenuButton = new JButton("The Island");
+        theCenterMenuButton = new JButton("The Center");
         paint(getGraphics());
 
     }
@@ -41,10 +43,17 @@ public class MainMenuPanel extends JPanel{
         //theIslandMenuButton.setBounds(500,500,200,200);
         theIslandMenuButton.setBounds(MainMenuPanelWidth/16, MainMenuPanelHeight/9, buttonWidth, buttonHeight);
         add(theIslandMenuButton);
+        theCenterMenuButton.setBounds(5*MainMenuPanelWidth/16, MainMenuPanelHeight/9, buttonWidth, buttonHeight);
+        add(theCenterMenuButton);
+
     }
 
     public static JButton getTheIslandMenuButton() {
         return theIslandMenuButton;
+    }
+
+    public static JButton getTheCenterMenuButton() {
+        return theCenterMenuButton;
     }
 
 }

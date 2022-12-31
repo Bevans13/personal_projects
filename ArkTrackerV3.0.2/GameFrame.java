@@ -9,6 +9,7 @@ public class GameFrame extends JFrame implements ActionListener {
     MainMenuPanel mainMenuPanel;
     WorldPanel worldPanel;
     WorldPanel theIslandPanel;
+    WorldPanel theCenterPanel;
 
 
     public static void main(String[] args) {
@@ -33,16 +34,19 @@ public class GameFrame extends JFrame implements ActionListener {
         userInterfacePanel = new UserInterfacePanel(cardLayout);
         mainMenuPanel = new MainMenuPanel();
         worldPanel = new WorldPanel();
-        theIslandPanel = new WorldPanel();
+        theIslandPanel = new WorldPanel("The Island");
+        theCenterPanel = new WorldPanel("The Center");
 
         //adds all sub-panels to UIPanel, which can be switched between
         userInterfacePanel.add(mainMenuPanel, "Main Menu");
         userInterfacePanel.add(worldPanel, "World Panel");
         userInterfacePanel.add(theIslandPanel, "The Island");
+        userInterfacePanel.add(theCenterPanel, theCenterPanel.getWorldName());
     
         //Call in Buttons and add their actionListeners to the GameFrame
-        MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         WorldPanel.getReturnButton().addActionListener(this);
+        MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
+        MainMenuPanel.getTheCenterMenuButton().addActionListener(this);
         
         //Adds UI Panel to the GameFrame
         add(userInterfacePanel);
@@ -64,8 +68,12 @@ public class GameFrame extends JFrame implements ActionListener {
             goToPanel(theIslandPanel);
             //gameOn();
         }
+        if (e.getSource() == MainMenuPanel.getTheCenterMenuButton()) {
+            goToPanel(theCenterPanel);
+        }
     }
     
+    //testing Method can remove later
     public void gameOn(){
         cardLayout.show(userInterfacePanel, "World Panel");
     }
