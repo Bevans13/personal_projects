@@ -27,7 +27,8 @@ public class GameFrame extends JFrame implements ActionListener {
     // Creates the JFrame that is the display Window
     GameFrame() {
         super();
-        //Instantiating All Panels
+
+        //Instantiating All Panels (including Worlds)
         cardLayout = new CardLayout();
         userInterfacePanel = new UserInterfacePanel(cardLayout);
         mainMenuPanel = new MainMenuPanel();
@@ -37,9 +38,9 @@ public class GameFrame extends JFrame implements ActionListener {
         //adds all sub-panels to UIPanel, which can be switched between
         userInterfacePanel.add(mainMenuPanel, "Main Menu");
         userInterfacePanel.add(worldPanel, "World Panel");
+        userInterfacePanel.add(theIslandPanel, "The Island");
     
-        //Declare and Instantiate Buttons 
-        
+        //Call in Buttons and add their actionListeners to the GameFrame
         MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         WorldPanel.getReturnButton().addActionListener(this);
         
@@ -55,17 +56,23 @@ public class GameFrame extends JFrame implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Declaring the results of each button being pressed
         if (e.getSource()==WorldPanel.getReturnButton()) {
             cardLayout.show(userInterfacePanel, "Main Menu");
         }
-        if (e.getSource()!=WorldPanel.getReturnButton()) {
-            
-            gameOn();
+        if (e.getSource()==MainMenuPanel.getTheIslandMenuButton()) {
+            goToPanel(theIslandPanel);
+            //gameOn();
         }
     }
     
     public void gameOn(){
         cardLayout.show(userInterfacePanel, "World Panel");
+    }
+
+    public void goToPanel(JPanel panel){
+        cardLayout.show(userInterfacePanel, ((WorldPanel) panel).getWorldName());
+
     }
 
 }

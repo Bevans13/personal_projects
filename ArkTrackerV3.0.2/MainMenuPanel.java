@@ -7,8 +7,10 @@ public class MainMenuPanel extends JPanel{
     private static JLabel label;
     private static JButton theIslandMenuButton;
 
-    private static int MainMenuPanelWidth;
-    private static int MainMenuPanelHeight;
+    private static int MainMenuPanelWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+    private static int MainMenuPanelHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+    private static int buttonWidth = MainMenuPanelWidth/8;
+    private static int buttonHeight = MainMenuPanelHeight/12;
 
     public MainMenuPanel() {
         super();
@@ -36,7 +38,8 @@ public class MainMenuPanel extends JPanel{
     }
 
     public void drawButtons(Graphics g) {
-        theIslandMenuButton.setBounds(500,500,200,200);
+        //theIslandMenuButton.setBounds(500,500,200,200);
+        theIslandMenuButton.setBounds(MainMenuPanelWidth/16, MainMenuPanelHeight/9, buttonWidth, buttonHeight);
         add(theIslandMenuButton);
     }
 
