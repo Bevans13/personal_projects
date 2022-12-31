@@ -95,6 +95,7 @@ public class GameFrame extends JFrame implements ActionListener {
 
     public void goToPanel(WorldPanel panel){
         SaveFileManager.readSaveData(panel);
+        panel.repaint();
         cardLayout.show(userInterfacePanel, panel.getWorldName());
 
     }
