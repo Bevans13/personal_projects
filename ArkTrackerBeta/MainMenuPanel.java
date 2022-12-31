@@ -40,7 +40,6 @@ public class MainMenuPanel extends JPanel{
     }
 
     public void drawButtons(Graphics g) {
-        //theIslandMenuButton.setBounds(500,500,200,200);
         theIslandMenuButton.setBounds(MainMenuPanelWidth/16, MainMenuPanelHeight/9, buttonWidth, buttonHeight);
         add(theIslandMenuButton);
         theCenterMenuButton.setBounds(5*MainMenuPanelWidth/16, MainMenuPanelHeight/9, buttonWidth, buttonHeight);

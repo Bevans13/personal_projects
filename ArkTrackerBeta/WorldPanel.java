@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -6,27 +7,38 @@ public class WorldPanel extends JPanel {
 
     private JLabel label;
     private JButton returnButton = new JButton("Return");
+    private JButton addCreatureButton = new JButton("Add");
     private String worldName;
+    private String saveFilePath;
+
+    //ArrayList containing Tames for each world
+    private ArrayList<Creature> tames;
     
     //Default Constructor (mainly to test functionality of initial program)
     public WorldPanel() {
         super();
-        setBackground(Color.RED);
-        label = new JLabel("World Panel");
         worldName = "The Island";
+        label = new JLabel("World Panel");
+        tames = new ArrayList<Creature>();
+
+        setBackground(Color.RED);
         paint(getGraphics());
 
     }
     
     //Contstructor to build each individual world
-    public WorldPanel(String worldName) {
+    public WorldPanel(String worldName, String filePath) {
         super();
         this.worldName = worldName;
-        setBackground(Color.ORANGE);
+        saveFilePath = filePath;
         label = new JLabel(this.worldName);
+        SaveFileManager.readSaveData(this);
+
+        setBackground(Color.ORANGE);
         paint(getGraphics());
     }
 
+    //seems to run automatically as part of contructor? should probable check the Super() contsructor documentation
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
@@ -46,11 +58,19 @@ public class WorldPanel extends JPanel {
     }
     
     public void drawButtons(Graphics g) {
-        returnButton.setBounds(500, 500, 250, 250);
+        returnButton.setBounds(15, 15, 75, 50);
         add(returnButton);
+        addCreatureButton.setBounds(100, 100, 100, 100);
+        add(addCreatureButton);
         
     }
     
+    public void addTame(){
+
+    }
+
+
+
     public JLabel getLabel() {
         return label;
     }
@@ -59,10 +79,24 @@ public class WorldPanel extends JPanel {
         return returnButton;
     }
 
+    public JButton getAddCreatureButton() {
+        return addCreatureButton;
+    }
+
     public String getWorldName() {
         return worldName;
     }
 
+    public String getSaveFilePath() {
+        return saveFilePath;
+    }
 
+    public ArrayList<Creature> getTames() {
+        return tames;
+    }
 
+    public void setTames(ArrayList<Creature> tames) {
+        this.tames = tames;
+    }
+    
 }

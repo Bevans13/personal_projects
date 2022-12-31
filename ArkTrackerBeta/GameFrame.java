@@ -34,8 +34,8 @@ public class GameFrame extends JFrame implements ActionListener {
         userInterfacePanel = new UserInterfacePanel(cardLayout);
         mainMenuPanel = new MainMenuPanel();
         worldPanel = new WorldPanel();
-        theIslandPanel = new WorldPanel("The Island");
-        theCenterPanel = new WorldPanel("The Center");
+        theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
+        theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
 
         //adds all sub-panels to UIPanel, which can be switched between
         userInterfacePanel.add(mainMenuPanel, "Main Menu");
@@ -46,8 +46,10 @@ public class GameFrame extends JFrame implements ActionListener {
         //Call in Buttons and add their actionListeners to the GameFrame
         theIslandPanel.getReturnButton().addActionListener(this);
         theCenterPanel.getReturnButton().addActionListener(this);
+        theIslandPanel.getAddCreatureButton().addActionListener(this);
         MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         MainMenuPanel.getTheCenterMenuButton().addActionListener(this);
+        
         
         //Adds UI Panel to the GameFrame
         add(userInterfacePanel);
@@ -62,9 +64,15 @@ public class GameFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         //Declaring the results of each button being pressed
-        if ((e.getSource() == theIslandPanel.getReturnButton())||(e.getSource()==theCenterPanel.getReturnButton())) {
+
+        //Return Button uses isReturnButton Method to make all return buttons 
+        //take it to the main menu panel
+        if (isReturnButton(e)) {
             cardLayout.show(userInterfacePanel, "Main Menu");
+            saveData();
         }
+
+        //Main Menu Buttons to move to each worldPanel
         if (e.getSource() == MainMenuPanel.getTheIslandMenuButton()) {
             goToPanel(theIslandPanel);
             //gameOn();
@@ -72,6 +80,12 @@ public class GameFrame extends JFrame implements ActionListener {
         if (e.getSource() == MainMenuPanel.getTheCenterMenuButton()) {
             goToPanel(theCenterPanel);
         } 
+
+        //Sets action for Add Creature Button for the Worlds
+        if (e.getSource() == theIslandPanel.getAddCreatureButton()) {
+            theIslandPanel.setBackground(Color.BLACK);
+        }
+
     }
     
     //testing Method can remove later
@@ -79,9 +93,22 @@ public class GameFrame extends JFrame implements ActionListener {
         cardLayout.show(userInterfacePanel, "World Panel");
     }
 
-    public void goToPanel(JPanel panel){
-        cardLayout.show(userInterfacePanel, ((WorldPanel) panel).getWorldName());
+    public void goToPanel(WorldPanel panel){
+        SaveFileManager.readSaveData(panel);
+        panel.repaint();
+        cardLayout.show(userInterfacePanel, panel.getWorldName());
 
+    }
+
+    public boolean isReturnButton(ActionEvent e){
+
+        return e.getSource() == theIslandPanel.getReturnButton()
+        || e.getSource()==theCenterPanel.getReturnButton();
+    }
+
+    public void saveData(){
+        SaveFileManager.writeSaveDate(theIslandPanel);
+        SaveFileManager.writeSaveDate(theCenterPanel);
     }
 
 }
