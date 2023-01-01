@@ -6,10 +6,20 @@ import javax.swing.*;
 public class WorldPanel extends JPanel {
 
     private JLabel label;
-    private JButton returnButton = new JButton("Return");
-    private JButton addCreatureButton = new JButton("Add");
     private String worldName;
     private String saveFilePath;
+
+    private JButton returnButton = new JButton("Return");
+    private JButton addCreatureButton = new JButton("Add");
+    private JButton viewCreatureButton = new JButton("View");
+
+    private JLabel newCreatureNameLabel = new JLabel("Name: ");
+    private JTextField newCreatureNameTextField = new JTextField();
+    private JLabel newCreatureSpeciesLabel = new JLabel("Species: ");
+    private JTextField newCreatureSpeciesTextField = new JTextField();
+    private JButton submitTextFieldButton = new JButton("Submit");
+
+    
 
     //ArrayList containing Tames for each world
     private ArrayList<Creature> tames;
@@ -20,7 +30,7 @@ public class WorldPanel extends JPanel {
         worldName = "The Island";
         label = new JLabel("World Panel");
         tames = new ArrayList<Creature>();
-
+        
         setBackground(Color.RED);
         paint(getGraphics());
 
@@ -62,14 +72,20 @@ public class WorldPanel extends JPanel {
         add(returnButton);
         addCreatureButton.setBounds(100, 100, 100, 100);
         add(addCreatureButton);
+        viewCreatureButton.setBounds(250, 100, 100, 100);
+        add(viewCreatureButton);
         
     }
-    
-    public void addTame(){
 
+    public void drawCreateCreatureTextFields(){
+        newCreatureNameLabel.setBounds(750, 300, 50, 20);
+        add(newCreatureNameLabel);
+        newCreatureNameTextField.setBounds(800, 300, 100, 20);
+        add(newCreatureNameTextField);
+        submitTextFieldButton.setBounds(200, 800, 100, 100);
+        add(submitTextFieldButton);
+        
     }
-
-
 
     public JLabel getLabel() {
         return label;
@@ -81,6 +97,10 @@ public class WorldPanel extends JPanel {
 
     public JButton getAddCreatureButton() {
         return addCreatureButton;
+    }
+
+    public JButton getViewCreatureButton() {
+        return viewCreatureButton;
     }
 
     public String getWorldName() {
@@ -99,4 +119,11 @@ public class WorldPanel extends JPanel {
         this.tames = tames;
     }
     
+    public JButton getSubmitTextFieldButton() {
+        return submitTextFieldButton;
+    }
+
+    public JTextField getNewCreatureNameTextField() {
+        return newCreatureNameTextField;
+    }
 }

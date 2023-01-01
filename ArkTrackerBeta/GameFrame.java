@@ -45,8 +45,14 @@ public class GameFrame extends JFrame implements ActionListener {
     
         //Call in Buttons and add their actionListeners to the GameFrame
         theIslandPanel.getReturnButton().addActionListener(this);
-        theCenterPanel.getReturnButton().addActionListener(this);
         theIslandPanel.getAddCreatureButton().addActionListener(this);
+        theIslandPanel.getViewCreatureButton().addActionListener(this);
+        theIslandPanel.getSubmitTextFieldButton().addActionListener(this);
+
+        theCenterPanel.getReturnButton().addActionListener(this);
+        theCenterPanel.getAddCreatureButton().addActionListener(this);
+        theCenterPanel.getViewCreatureButton().addActionListener(this);
+
         MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         MainMenuPanel.getTheCenterMenuButton().addActionListener(this);
         
@@ -67,7 +73,7 @@ public class GameFrame extends JFrame implements ActionListener {
 
         //Return Button uses isReturnButton Method to make all return buttons 
         //take it to the main menu panel
-        if (isReturnButton(e)) {
+        if (e.getActionCommand().equals("Return")) {
             cardLayout.show(userInterfacePanel, "Main Menu");
             saveData();
         }
@@ -83,9 +89,24 @@ public class GameFrame extends JFrame implements ActionListener {
 
         //Sets action for Add Creature Button for the Worlds
         if (e.getSource() == theIslandPanel.getAddCreatureButton()) {
-            theIslandPanel.setBackground(Color.BLACK);
+            theIslandPanel.setBackground(Color.WHITE);
+            theIslandPanel.drawCreateCreatureTextFields();
+            
         }
 
+        if (e.getActionCommand().equals("Submit")) {
+            theIslandPanel.setBackground(Color.green);
+        }
+
+        /* 
+        if (e.getSource() == theIslandPanel.getSubmitTextFieldButton()) {
+            String creatureName = theIslandPanel.getNewCreatureNameTextField().getText();
+            theIslandPanel.
+            System.out.println(creatureName);
+             
+                
+        }
+        */
     }
     
     //testing Method can remove later
