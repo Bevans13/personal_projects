@@ -81,43 +81,31 @@ public class GameFrame extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Return")) {
             cardLayout.show(userInterfacePanel, "Main Menu");
             saveData();
+            parent.removeAll();
+            parent.paint(getGraphics());
         }
 
+        
+        //Main Menu Buttons to move to each worldPanel
         if (parent == mainMenuPanel) {
             goToPanel(source.getText());
         }
-
-        //Main Menu Buttons to move to each worldPanel
-        /*
-        if (source == MainMenuPanel.getTheIslandMenuButton()) {
-            goToPanel(theIslandPanel);
-            System.out.println(source.getText());
-            //gameOn();
-        }
-        if (source == MainMenuPanel.getTheCenterMenuButton()) {
-            goToPanel(theCenterPanel);
-        } 
-        */
+        
 
         //Sets action for Add Creature Button for the Worlds
         if (e.getActionCommand().equals("Add")) {
             ((WorldPanel) parent).setBackground(Color.WHITE);
             ((WorldPanel) parent).drawCreateCreatureTextFields();
-            //theIslandPanel.setBackground(Color.WHITE);
-            //theIslandPanel.drawCreateCreatureTextFields();
             
         }
 
         if (e.getActionCommand().equals("Submit")) {
             String creatureName = theIslandPanel.getNewCreatureNameTextField().getText();
             System.out.println(creatureName);   
+
         }
 
-        /* 
-        if (e.getSource() == theIslandPanel.getSubmitTextFieldButton()) {
-                
-        }
-        */
+        
     }
     
     //testing Method can remove later
@@ -125,6 +113,7 @@ public class GameFrame extends JFrame implements ActionListener {
         cardLayout.show(userInterfacePanel, "World Panel");
     }
 
+    //No longer Used, need to implement loading somewhere else now
     public void goToPanel(WorldPanel panel){
         SaveFileManager.readSaveData(panel);
         cardLayout.show(userInterfacePanel, panel.getWorldName());
@@ -135,14 +124,6 @@ public class GameFrame extends JFrame implements ActionListener {
         cardLayout.show(userInterfacePanel, selectedPanel);
 
     }
-
-    //Obsolete and replaced by using the getActionCommand() 
-    // in the actionPerformed()
-    /*public boolean isReturnButton(ActionEvent e){
-
-        return e.getSource() == theIslandPanel.getReturnButton()
-        || e.getSource()==theCenterPanel.getReturnButton();
-    }*/
 
     public void saveData(){
         SaveFileManager.writeSaveDate(theIslandPanel);
