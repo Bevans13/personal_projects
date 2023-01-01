@@ -129,6 +129,6 @@ public class WorldPanel extends JPanel {
 
     @Override
     public String toString() {
-        return worldName + super.toString();
+        return worldName+ super.toString();
     }
 }
