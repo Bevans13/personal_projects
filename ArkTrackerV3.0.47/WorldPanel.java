@@ -12,17 +12,17 @@ public class WorldPanel extends JPanel {
     private static int labelHeight;
     private static int textFieldWidth;
     private static int textFieldHeight;
-
+    
     private JLabel label;
     private String worldName;
     private String saveFilePath;
-
+    
     // Main Options on all World Screens
     private JButton returnButton = new JButton("Return");
     private JButton addCreatureButton = new JButton("Add");
     private JButton viewCreatureButton = new JButton("View");
 
-    // Input fields needed to accept user info for creating a new Creature
+    //Input fields needed to accept user info for creating a new Creature
     private JLabel newCreatureNameLabel = new JLabel("Name: ");
     private JTextField newCreatureNameTextField = new JTextField();
     private JLabel newCreatureSpeciesLabel = new JLabel("Species: ");
@@ -45,23 +45,23 @@ public class WorldPanel extends JPanel {
     private JTextField newCreatureMovementTextField = new JTextField();
     private JLabel newCreatureTorporLabel = new JLabel("Torpor: ");
     private JTextField newCreatureTorporTextField = new JTextField();
-    private JLabel[] newCreatureLabels = new JLabel[] {
-            newCreatureNameLabel, newCreatureSpeciesLabel, newCreatureGenderLabel,
-            newCreatureHPLabel, newCreatureStaminaLabel, newCreatureOxygenLabel,
-            newCreatureFoodLabel, newCreatureWeightLabel, newCreatureMeleeLabel,
-            newCreatureMovementLabel, newCreatureTorporLabel
+    private JLabel[] newCreatureLabels = new JLabel[]{
+        newCreatureNameLabel, newCreatureSpeciesLabel, newCreatureGenderLabel, 
+        newCreatureHPLabel, newCreatureStaminaLabel, newCreatureOxygenLabel, 
+        newCreatureFoodLabel, newCreatureWeightLabel, newCreatureMeleeLabel,
+        newCreatureMovementLabel, newCreatureTorporLabel
     };
-    private JTextField[] newCreatureTextFields = new JTextField[] {
-            newCreatureNameTextField, newCreatureSpeciesTextField, newCreatureGenderTextField,
-            newCreatureHPTextField, newCreatureStaminaTextField, newCreatureOxygenTextField,
-            newCreatureFoodTextField, newCreatureWeighTextField, newCreatureMeleeTextField,
-            newCreatureMovementTextField, newCreatureTorporTextField
+    private JTextField[] newCreatureTextFields = new JTextField[]{
+        newCreatureNameTextField, newCreatureSpeciesTextField, newCreatureGenderTextField,
+        newCreatureHPTextField, newCreatureStaminaTextField, newCreatureOxygenTextField,
+        newCreatureFoodTextField, newCreatureWeighTextField, newCreatureMeleeTextField, 
+        newCreatureMovementTextField, newCreatureTorporTextField
     };
     private JButton submitTextFieldButton = new JButton("Submit");
 
-    // ArrayList containing Tames for each world
-    private ArrayList<Creature> tames;
-
+    //ArrayList containing Tames for each world
+    private ArrayList<Creature> tames ;
+    
     private JLabel creature1Name;
     private JLabel creature1Species;
     private JLabel creature1Gender;
@@ -74,22 +74,20 @@ public class WorldPanel extends JPanel {
     private JLabel creature1Movement;
     private JLabel creature1Torpor;
 
-    private JLabel creature2Name;
-    private JLabel creature2Species;
 
-    // Default Constructor (mainly to test functionality of initial program)
+    //Default Constructor (mainly to test functionality of initial program)
     public WorldPanel() {
         super();
         worldName = "The Island";
         label = new JLabel("World Panel");
         tames = new ArrayList<Creature>();
-
+        
         setBackground(Color.WHITE);
         paint(getGraphics());
-
+        
     }
-
-    // Contstructor to build each individual world
+    
+    //Contstructor to build each individual world
     public WorldPanel(String worldName, String filePath) {
         super();
         this.worldName = worldName;
@@ -97,63 +95,84 @@ public class WorldPanel extends JPanel {
         label = new JLabel(this.worldName);
         tames = new ArrayList<>();
         SaveFileManager.readSaveData(this);
-
+        
         setBackground(Color.WHITE);
         paint(getGraphics());
     }
-
-    // seems to run automatically as part of contructor? should probable check the
-    // Super() contsructor documentation
+    
+    //seems to run automatically as part of contructor? should probable check the Super() contsructor documentation
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     }
-
+    
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         drawLabel(g);
         drawButtons(g);
     }
-
-    public void drawLabel(Graphics g) {
+    
+    public void drawLabel(Graphics g) {  
         label.setAlignmentX(CENTER_ALIGNMENT);
         add(label);
-
+        
     }
-
+    
     public void drawButtons(Graphics g) {
         returnButton.setBounds(15, 15, 75, 50);
         add(returnButton);
-
-        addCreatureButton.setBounds(returnButton.getX() + returnButton.getWidth() + 15, 15, 100, 100);
+        
+        addCreatureButton.setBounds(returnButton.getX()+returnButton.getWidth()+15, 15, 100, 100);
         add(addCreatureButton);
-        viewCreatureButton.setBounds(addCreatureButton.getX() + addCreatureButton.getWidth() + 15, 15, 100, 100);
+        viewCreatureButton.setBounds(addCreatureButton.getX()+addCreatureButton.getWidth()+15, 15, 100, 100);
         add(viewCreatureButton);
-        // Added this repaint to make buttons come back after removing all as part of
-        // return button
-        repaint();
+        
     }
-
-    public void drawCreateCreatureTextFields() {
-
+    
+    public void drawCreateCreatureTextFields(){
+        
         for (int i = 0; i < newCreatureLabels.length; i++) {
-            newCreatureLabels[i].setBounds(WorldPanelWidth / 2 - 100, 130 + (25 * i), 100, 25);
+            newCreatureLabels[i].setBounds(WorldPanelWidth/2-100, 130+(25*i), 100, 25);
             add(newCreatureLabels[i]);
         }
         for (int i = 0; i < newCreatureTextFields.length; i++) {
-            newCreatureTextFields[i].setBounds(WorldPanelWidth / 2, 130 + (25 * i), 100, 25);
+            newCreatureTextFields[i].setBounds(WorldPanelWidth/2, 130+(25*i), 100, 25);
             add(newCreatureTextFields[i]);
         }
-
+        
         submitTextFieldButton.setBounds(200, 800, 100, 100);
         add(submitTextFieldButton);
-
+        
         paint(getGraphics());
+        
+    }
+    
+    public void viewCreatures(){
+        int x = WorldPanelWidth/12;
+        int y = 150;
+        //creature1Name = new JLabel(tames.get(0).getName());
+        //creature1Name.setBounds(x, y, WorldPanelWidth/6, 25);
+        //add(creature1Name);
+        //System.out.println(tames.get(0).toString());
 
+        for (int i = 0; i < tames.size(); i++) {
+            creature1Name = new JLabel(tames.get(i).getName());
+            creature1Name.setBounds(x,y, WorldPanelWidth/6, 25);
+            add(creature1Name);
+            y += 25;
+
+            creature1Health = new JLabel(Double.toString(tames.get(i).getHp()));
+            creature1Health.setBounds(x, y, WorldPanelWidth/6, 25);
+            add(creature1Health);
+
+            System.out.println(tames.get(i).toString());
+            
+        }
+        paint(getGraphics());
     }
 
-    public void removeCreateCreatureTextFields() {
+    public void removeCreateCreatureTextFields(){
         for (int i = 0; i < newCreatureLabels.length; i++) {
             remove(newCreatureLabels[i]);
         }
@@ -164,86 +183,49 @@ public class WorldPanel extends JPanel {
         remove(submitTextFieldButton);
         paint(getGraphics());
     }
+    
 
-    public void viewCreatures() {
-        int x = WorldPanelWidth/12;
-        int x2;
-        int y = 200;
-        // creature1Name = new JLabel(tames.get(0).getName());
-        // creature1Name.setBounds(x, y, WorldPanelWidth/6, 25);
-        // add(creature1Name);
-        // System.out.println(tames.get(0).toString());
-        
-        for (int i = 0; i < tames.size(); i++) {
-            if (i < 3) {
-                x = (x + ((i * 4) * WorldPanelWidth / 12));
-                x2 = x + WorldPanelWidth / 12;
-                int width = WorldPanelWidth / 12;
-                int height = 25;
-                creature1Name = new JLabel(tames.get(i).getName());
-                creature1Name.setBounds(x, y, width, height);
-                add(creature1Name);
-                creature1Species = new JLabel(tames.get(i).getSpecies());
-                creature1Species.setBounds(x, y + 25, width, height);
-                add(creature1Species);
-                creature1Gender = new JLabel(String.valueOf(tames.get(i).getGender()));
-                creature1Gender.setBounds(x, y + 50, width, height);
-                add(creature1Gender);
-                creature1Health = new JLabel("HP  " + Double.toString(tames.get(i).getHp()));
-                creature1Health.setBounds(x2, y, width, height);
-                add(creature1Health);
-                creature1Stamenia = new JLabel(String.valueOf(tames.get(i).getStamina()));
-                creature1Stamenia.setBounds(x2, y + 25, width, height);
-
-            }
-
-            System.out.println(tames.get(i).toString());
-
-        }
-        paint(getGraphics());
-    }
-
-    // Getters Section
+    //Getters Section
     public JLabel getLabel() {
         return label;
     }
-
+    
     public JButton getReturnButton() {
         return returnButton;
     }
-
+    
     public JButton getAddCreatureButton() {
         return addCreatureButton;
     }
-
+    
     public JButton getViewCreatureButton() {
         return viewCreatureButton;
     }
-
+    
     public String getWorldName() {
         return worldName;
     }
-
+    
     public String getSaveFilePath() {
         return saveFilePath;
     }
-
+    
     public ArrayList<Creature> getTames() {
         return tames;
     }
-
+    
     public void setTames(ArrayList<Creature> tames) {
         this.tames = tames;
     }
-
+    
     public JButton getSubmitTextFieldButton() {
         return submitTextFieldButton;
     }
-
+    
     public JTextField getNewCreatureNameTextField() {
         return newCreatureNameTextField;
     }
-
+    
     @Override
     public String toString() {
         return worldName + super.toString();
@@ -252,35 +234,35 @@ public class WorldPanel extends JPanel {
     public JTextField getNewCreatureGenderTextField() {
         return newCreatureGenderTextField;
     }
-
+    
     public JTextField getNewCreatureHPTextField() {
         return newCreatureHPTextField;
     }
-
+    
     public JTextField getNewCreatureStaminaTextField() {
         return newCreatureStaminaTextField;
     }
-
+    
     public JTextField getNewCreatureOxygenTextField() {
         return newCreatureOxygenTextField;
     }
-
+    
     public JTextField getNewCreatureFoodTextField() {
         return newCreatureFoodTextField;
     }
-
+    
     public JTextField getNewCreatureWeighTextField() {
         return newCreatureWeighTextField;
     }
-
+    
     public JTextField getNewCreatureMeleeTextField() {
         return newCreatureMeleeTextField;
     }
-
+    
     public JTextField getNewCreatureMovementTextField() {
         return newCreatureMovementTextField;
     }
-
+    
     public JTextField getNewCreatureTorporTextField() {
         return newCreatureTorporTextField;
     }

@@ -82,7 +82,6 @@ public class GameFrame extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Return")) {
             cardLayout.show(userInterfacePanel, "Main Menu");
             ((WorldPanel) parent).removeCreateCreatureTextFields();
-            ((WorldPanel) parent).removeAll();
         }
         
         
