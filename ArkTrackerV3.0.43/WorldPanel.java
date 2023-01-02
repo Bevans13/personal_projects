@@ -5,13 +5,6 @@ import javax.swing.*;
 
 public class WorldPanel extends JPanel {
 
-    private static int WorldPanelWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-    private static int WorldPanelHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-    private static int labelWidth;
-    private static int labelHeight;
-    private static int textFieldWidth;
-    private static int textFieldHeight;
-    
     private JLabel label;
     private String worldName;
     private String saveFilePath;
@@ -24,26 +17,9 @@ public class WorldPanel extends JPanel {
     private JTextField newCreatureNameTextField = new JTextField();
     private JLabel newCreatureSpeciesLabel = new JLabel("Species: ");
     private JTextField newCreatureSpeciesTextField = new JTextField();
-    private JLabel newCreatureGenderLabel = new JLabel("Gender: ");
-    private JTextField newCreatureGenderTextField = new JTextField();
-    private JLabel newCreatureHPLabel = new JLabel("Health");
-    private JTextField newCreatureHPTextField = new JTextField();
-    private JLabel newCreatureStaminaLabel = new JLabel("Stamina");
-    private JTextField newCreatureStaminaTextField = new JTextField();
-    private JLabel newCreatureOxygenLabel = new JLabel("Oxygen");
-    private JTextField newCreatureOxygenTextField = new JTextField();
-    private JLabel newCreatureFoodLabel = new JLabel("Food");
-    private JTextField newCreatureFoodTextField = new JTextField();
-    private JLabel newCreatureWeightLabel = new JLabel("Weight");
-    private JTextField newCreatureWeighTextField = new JTextField();
-    private JLabel newCreatureMeleeLabel = new JLabel("Melee");
-    private JTextField newCreatureMeleeTextField = new JTextField();
-    private JLabel newCreatureMovementLabel = new JLabel("Movement");
-    private JTextField newCreatureMovementTextField = new JTextField();
-    private JLabel newCreatureTorporLabel = new JLabel("Torpor");
-    private JTextField newCreatureTorporTextField = new JTextField();
-
     private JButton submitTextFieldButton = new JButton("Submit");
+
+    
 
     //ArrayList containing Tames for each world
     private ArrayList<Creature> tames;
@@ -55,7 +31,7 @@ public class WorldPanel extends JPanel {
         label = new JLabel("World Panel");
         tames = new ArrayList<Creature>();
 
-        setBackground(Color.WHITE);
+        setBackground(Color.RED);
         paint(getGraphics());
 
     }
@@ -68,7 +44,7 @@ public class WorldPanel extends JPanel {
         label = new JLabel(this.worldName);
         SaveFileManager.readSaveData(this);
 
-        setBackground(Color.WHITE);
+        setBackground(Color.ORANGE);
         paint(getGraphics());
     }
 
@@ -102,24 +78,13 @@ public class WorldPanel extends JPanel {
     }
 
     public void drawCreateCreatureTextFields(){
-
-        newCreatureNameLabel.setBounds(750, 300, 50, 25);
+        newCreatureNameLabel.setBounds(750, 300, 50, 20);
         add(newCreatureNameLabel);
-        newCreatureNameTextField.setBounds(800, 300, 100, 25);
+        newCreatureNameTextField.setBounds(800, 300, 100, 20);
         add(newCreatureNameTextField);
-
         submitTextFieldButton.setBounds(200, 800, 100, 100);
         add(submitTextFieldButton);
-
-        paint(getGraphics());
         
-    }
-
-    public void removeCreateCreatureTextFields(){
-        remove(newCreatureNameLabel);
-        remove(newCreatureNameTextField);
-        remove(submitTextFieldButton);
-        paint(getGraphics());
     }
 
     public JLabel getLabel() {

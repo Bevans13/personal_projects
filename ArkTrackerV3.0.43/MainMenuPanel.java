@@ -15,7 +15,7 @@ public class MainMenuPanel extends JPanel{
 
     public MainMenuPanel() {
         super();
-        setBackground(Color.WHITE);
+        setBackground(Color.BLUE);
         label = new JLabel("Main Menu");
         theIslandMenuButton = new JButton("The Island");
         theCenterMenuButton = new JButton("The Center");

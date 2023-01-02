@@ -81,7 +81,8 @@ public class GameFrame extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Return")) {
             cardLayout.show(userInterfacePanel, "Main Menu");
             saveData();
-            ((WorldPanel) parent).removeCreateCreatureTextFields();
+            parent.removeAll();
+            parent.paint(getGraphics());
         }
 
         
@@ -93,6 +94,7 @@ public class GameFrame extends JFrame implements ActionListener {
 
         //Sets action for Add Creature Button for the Worlds
         if (e.getActionCommand().equals("Add")) {
+            ((WorldPanel) parent).setBackground(Color.WHITE);
             ((WorldPanel) parent).drawCreateCreatureTextFields();
             
         }
