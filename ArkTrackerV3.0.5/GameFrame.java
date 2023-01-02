@@ -118,6 +118,8 @@ public class GameFrame extends JFrame implements ActionListener {
 
             WorldPanel currentWorld = ((WorldPanel) parent);
             currentWorld.getTames().add(newCreature);
+            //((WorldPanel) parent).getTames().add(newCreature);
+
             System.out.println(creatureName);   
             ((WorldPanel) parent).removeCreateCreatureTextFields();
             saveData();
