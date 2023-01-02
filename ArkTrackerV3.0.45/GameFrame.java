@@ -52,7 +52,6 @@ public class GameFrame extends JFrame implements ActionListener {
         theCenterPanel.getReturnButton().addActionListener(this);
         theCenterPanel.getAddCreatureButton().addActionListener(this);
         theCenterPanel.getViewCreatureButton().addActionListener(this);
-        theCenterPanel.getSubmitTextFieldButton().addActionListener(this);
 
         MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         MainMenuPanel.getTheCenterMenuButton().addActionListener(this);
@@ -99,23 +98,7 @@ public class GameFrame extends JFrame implements ActionListener {
         }
         
         if (e.getActionCommand().equals("Submit")) {
-            String creatureName = ((WorldPanel) parent).getNewCreatureNameTextField().getText();
-            String creatureSpecies = ((WorldPanel) parent).getNewCreatureSpeciesTextField().getText();
-            char creatureGender = ((WorldPanel) parent).getNewCreatureGenderTextField().getText().charAt(0);
-            Double creatureHP = Double.valueOf(((WorldPanel) parent).getNewCreatureHPTextField().getText());
-            Double creatureStamina = Double.valueOf(((WorldPanel) parent).getNewCreatureStaminaTextField().getText());
-            Double creatureOxygen = Double.valueOf(((WorldPanel) parent).getNewCreatureOxygenTextField().getText());
-            Double creatureFood = Double.valueOf(((WorldPanel) parent).getNewCreatureFoodTextField().getText());
-            Double creatureWeight = Double.valueOf(((WorldPanel) parent).getNewCreatureWeighTextField().getText());
-            Double creatureMelee = Double.valueOf(((WorldPanel) parent).getNewCreatureMeleeTextField().getText());
-            Double creatureMovement = Double.valueOf(((WorldPanel) parent).getNewCreatureMovementTextField().getText());
-            Double creatureTorpor = Double.valueOf(((WorldPanel) parent).getNewCreatureTorporTextField().getText());
-            
-            ((WorldPanel) parent).getTames().add(new Creature(creatureName, creatureSpecies, 
-            creatureGender, creatureHP, creatureStamina, 
-            creatureOxygen, creatureFood, creatureWeight, 
-            creatureMelee, creatureMovement, creatureTorpor));
-
+            String creatureName = theIslandPanel.getNewCreatureNameTextField().getText();
             System.out.println(creatureName);   
             ((WorldPanel) parent).removeCreateCreatureTextFields();
 
