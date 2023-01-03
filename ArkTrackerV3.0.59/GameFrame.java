@@ -54,15 +54,12 @@ public class GameFrame extends JFrame implements ActionListener {
         theIslandPanel.getViewCreatureButton().addActionListener(this);
         theIslandPanel.getSubmitTextFieldButton().addActionListener(this);
         theIslandPanel.getNextPageButton().addActionListener(this);
-        theIslandPanel.getPrevPageButton().addActionListener(this);
-        
+
         theCenterPanel.getReturnButton().addActionListener(this);
         theCenterPanel.getAddCreatureButton().addActionListener(this);
         theCenterPanel.getViewCreatureButton().addActionListener(this);
         theCenterPanel.getSubmitTextFieldButton().addActionListener(this);
-        theCenterPanel.getNextPageButton().addActionListener(this);
-        theCenterPanel.getPrevPageButton().addActionListener(this);
-        
+
         MainMenuPanel.getTheIslandMenuButton().addActionListener(this);
         MainMenuPanel.getTheCenterMenuButton().addActionListener(this);
         
@@ -156,17 +153,10 @@ public class GameFrame extends JFrame implements ActionListener {
             saveData();
         }
 
-        if (e.getActionCommand().equals("Next Page")) {
+        if (e.getActionCommand().equalsIgnoreCase("Next Page")) {
             ((WorldPanel) parent).setBackground(Color.blue);
             ((WorldPanel) parent).removeAll();
             ((WorldPanel) parent).incrementCurrentPage();
-            ((WorldPanel) parent).viewCreatures();
-        }
-
-        if (e.getActionCommand().equals("Prev Page")) {
-            ((WorldPanel) parent).setBackground(Color.GREEN);
-            ((WorldPanel) parent).removeAll();
-            ((WorldPanel) parent).decrementCurrentPage();
             ((WorldPanel) parent).viewCreatures();
         }
 

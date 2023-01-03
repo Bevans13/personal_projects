@@ -94,7 +94,6 @@ public class WorldPanel extends JPanel {
         RIPCreature9Button,RIPCreature10Button,RIPCreature11Button,RIPCreature12Button
     };
     private JButton nextPageButton = new JButton("Next Page");
-    private JButton prevPageButton = new JButton("Prev page");
     private int currentPage = 1;
     private JLabel pageIndicator = new JLabel("Page #"+currentPage);
 
@@ -188,11 +187,13 @@ public class WorldPanel extends JPanel {
         paint(getGraphics());
     }
 
-
+    //Currently debulking, replacing the excessive code with the displayCreature()
+    // method to make it more efficient as well as hopefully make displaying tames 
+    // over 9 by creating a second page instead, perhaps make viewCreatures() take
+    // an argument
     public void viewCreatures() {
         int x;
         int y;
-        //allows i to be manipulated and varied based on the page of creatures program is on
         int controlVariable = (9*(currentPage-1));
         
         for (int i = 0; i < 9 && i < tames.size()-controlVariable; i++) {
@@ -223,8 +224,6 @@ public class WorldPanel extends JPanel {
             if (tames.size()>9) {
                 nextPageButton.setBounds((7*WorldPanelWidth)/8, 15, 100, 25);
                 add(nextPageButton);
-                prevPageButton.setBounds(nextPageButton.getX()-125, 15, 100,25);
-                add(prevPageButton);
             }
 
             System.out.println(tames.get(i).toString());
@@ -434,10 +433,6 @@ public class WorldPanel extends JPanel {
         this.currentPage = currentPage;
     } public void incrementCurrentPage(){
         ++currentPage;
-    } public void decrementCurrentPage(){
-        --currentPage;
-    } public JButton getPrevPageButton() {
-        return prevPageButton;
     }
 
 }
