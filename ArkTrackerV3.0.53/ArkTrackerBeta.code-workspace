@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../ArkTrackerV2"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../ArkSurvival"
+		}
+	],
+	"settings": {}
+}

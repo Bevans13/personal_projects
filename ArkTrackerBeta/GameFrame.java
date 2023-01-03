@@ -14,6 +14,7 @@ public class GameFrame extends JFrame implements ActionListener {
     WorldPanel worldPanel;
     WorldPanel theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
+    // delete private static GameFrame gameFrame;
 
 
     public static void main(String[] args) {
@@ -98,6 +99,9 @@ public class GameFrame extends JFrame implements ActionListener {
         
         //Sets action for Add Creature Button for the Worlds
         if (e.getActionCommand().equals("Add")) {
+            //Need to make a way to remove View info when switching to add option.
+            ((WorldPanel) parent).removeAll();
+            ((WorldPanel) parent).repaint();
             ((WorldPanel) parent).drawCreateCreatureTextFields();
             
         }
@@ -122,16 +126,30 @@ public class GameFrame extends JFrame implements ActionListener {
             creatureTorpor);
 
             System.out.println(creatureName);   
-            
+
             ((WorldPanel) parent).removeCreateCreatureTextFields();
             saveData();
         }
 
+        //currently working on adding the ability to add an array of kill buttons and listeners
         if (e.getActionCommand().equals("View")) {
+            ((WorldPanel) parent).removeCreateCreatureTextFields();
             ((WorldPanel) parent).viewCreatures();
+            //Calls RIP Buttons and adds actionListeners for each one.
+            JButton[] RIPButtons = ((WorldPanel) parent).getRIPButtons();
+            for (int i = 0; i < ((WorldPanel) parent).getTames().size(); i++) {
+                RIPButtons[i].addActionListener(this);
+            }
+
             parent.setBackground(Color.CYAN);
         }
         
+        if (e.getActionCommand().startsWith("RIP")) {
+            ((WorldPanel) parent).setBackground(Color.MAGENTA);
+            JButton[] RIPButtons = ((WorldPanel) parent).getRIPButtons();
+            
+        }
+
     }
     public void goToPanel(String selectedPanel){
         cardLayout.show(userInterfacePanel, selectedPanel);
@@ -142,5 +160,4 @@ public class GameFrame extends JFrame implements ActionListener {
         SaveFileManager.writeSaveDate(theIslandPanel);
         SaveFileManager.writeSaveDate(theCenterPanel);
     }
-
 }
