@@ -94,7 +94,6 @@ public class WorldPanel extends JPanel {
         RIPCreature9Button,RIPCreature10Button,RIPCreature11Button,RIPCreature12Button
     };
     private JButton nextPageButton = new JButton("Next Page");
-    private int currentPage;
 
     // Default Constructor (mainly to test functionality of initial program)
     public WorldPanel() {
@@ -191,27 +190,26 @@ public class WorldPanel extends JPanel {
     public void viewCreatures() {
         int x;
         int y;
-        currentPage = 1;
         
-        for (int i = 0; i+1 < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             System.out.println(tames.size()+" " +i);
             //Adds a RIP Button for each of the creatures shown
             RIPButtons[i].setBounds(400+(i*50), 920, 35, 20);
             add(RIPButtons[i]);
-            // 0 1 2
-            if (i/3 == 0) {
+            // 0 1 2 then 9 10 11   if i/3 == 0 || i/3 == 3
+            if (i/3 == 0 || i/3==3) {
                 x = (WorldPanelWidth/12)+((i * 4)*(WorldPanelWidth/12));
                 y = 200;
                 displayCreature(x, y, i);
             } 
-            // 3 4 5
+            // 3 4 5 then 12 13 14   if i/3 == 1 ||
             if (i/3==1) {
                 x = (WorldPanelWidth/12)+(((i-3) * 4)*(WorldPanelWidth/12));
                 y = 400;
                 displayCreature(x, y, i);
                 
             }
-            // 6 7 8
+            // 6 7 8 then 15 16 17    if i/3 ==2
             if (i/3==2) {
                 x = (WorldPanelWidth/12)+(((i-6) * 4)*(WorldPanelWidth/12));
                 y = 600;
