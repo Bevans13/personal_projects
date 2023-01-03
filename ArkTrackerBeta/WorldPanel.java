@@ -204,6 +204,7 @@ public class WorldPanel extends JPanel {
                 displayCreature(x, y, i);
 
             } 
+            
             // 3 4 5 then 12 13 14   if i/3 == 1
             if (i >= 3 && i<6) {
                 x = (WorldPanelWidth/12)+(((i-3) * 4)*(WorldPanelWidth/12));
