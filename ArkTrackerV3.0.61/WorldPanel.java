@@ -140,8 +140,6 @@ public class WorldPanel extends JPanel {
     public void drawLabel(Graphics g) {
         label.setBounds((5*WorldPanelWidth)/12, 5, WorldPanelWidth/6, 25);
         add(label);
-        //remove or fix
-        //pageIndicator.setText("Page #"+currentPage);
         pageIndicator.setBounds((WorldPanelWidth-75), 15, 50, 25);
         add(pageIndicator);
 
@@ -171,7 +169,7 @@ public class WorldPanel extends JPanel {
             add(newCreatureTextFields[i]);
         }
 
-        submitTextFieldButton.setBounds(viewCreatureButton.getX()+viewCreatureButton.getWidth()+15, 15, 100, 100);
+        submitTextFieldButton.setBounds(200, 800, 100, 100);
         add(submitTextFieldButton);
 
         paint(getGraphics());
