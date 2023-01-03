@@ -197,15 +197,15 @@ public class WorldPanel extends JPanel {
             //Adds a RIP Button for each of the creatures shown
             RIPButtons[i].setBounds(400+(i*50), 920, 35, 20);
             add(RIPButtons[i]);
-            // 0 1 2 then 9 10 11   if i/3 == 0 || i/3 == 
+            // 0 1 2 then 9 10 11   if i/3 == 0 || i/3 == 3
             if (i < 3) {
                 x = (WorldPanelWidth/12)+((i * 4)*(WorldPanelWidth/12));
                 y = 200;
                 displayCreature(x, y, i);
 
             } 
-            
-            // 3 4 5 then 12 13 14   if i/3 == 1
+
+            // 3 4 5 then 12 13 14   if i/3 == 1 ||
             if (i >= 3 && i<6) {
                 x = (WorldPanelWidth/12)+(((i-3) * 4)*(WorldPanelWidth/12));
                 y = 400;
@@ -232,6 +232,7 @@ public class WorldPanel extends JPanel {
         int x2 = x + WorldPanelWidth/12;
         int width = WorldPanelWidth/12;
         int height = 25;
+
         // left column
         creature1Name = new JLabel(tames.get(i).getName());
         creature1Name.setBounds(x, y, width, height);
