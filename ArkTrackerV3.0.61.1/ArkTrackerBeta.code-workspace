@@ -13,9 +13,5 @@
 			"path": "../ArkTrackerImages"
 		}
 	],
-	"settings": {
-		"java.project.sourcePaths": [
-			""
-		]
-	}
+	"settings": {}
 }

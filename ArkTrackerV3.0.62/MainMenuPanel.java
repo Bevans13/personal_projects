@@ -40,8 +40,7 @@ public class MainMenuPanel extends JPanel{
     }
 
     public void drawLabel(Graphics g) {
-        label.setBounds(MainMenuPanelWidth/2-(80/2), 15, 80, 25);
-        add(label);
+        //add(label);
         File file = new File("RaptorIcon.png");
         System.out.println(file.getAbsolutePath());
         iconTest.setBounds(400, 400, 125, 125);

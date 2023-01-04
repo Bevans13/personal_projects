@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.io.File;
 
 import javax.swing.*;
 
@@ -13,9 +12,6 @@ public class MainMenuPanel extends JPanel{
     private static int MainMenuPanelHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     private static int buttonWidth = MainMenuPanelWidth/8;
     private static int buttonHeight = MainMenuPanelHeight/12;
-
-    //Testing making an Icon show using JLabel
-    private static JLabel iconTest = new JLabel(new ImageIcon("/Users/brendenaevans/Documents/GHProjects/personal_projects/ArkTrackerImages/RaptorIcon.png"));
 
     public MainMenuPanel() {
         super();
@@ -40,12 +36,7 @@ public class MainMenuPanel extends JPanel{
     }
 
     public void drawLabel(Graphics g) {
-        label.setBounds(MainMenuPanelWidth/2-(80/2), 15, 80, 25);
         add(label);
-        File file = new File("RaptorIcon.png");
-        System.out.println(file.getAbsolutePath());
-        iconTest.setBounds(400, 400, 125, 125);
-        add(iconTest);
     }
 
     public void drawButtons(Graphics g) {
