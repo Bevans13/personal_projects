@@ -1,8 +1,5 @@
 
 import javax.swing.*;
-
-import Creatures.*;
-
 import java.awt.event.*;
 import java.awt.*;
 
@@ -16,13 +13,20 @@ public class GameFrame extends JFrame implements ActionListener {
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
 
     public static void main(String[] args) {
-        
+        /* 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 GameFrame gameFrame = new GameFrame("Ark Tracker V3");
             }
         });
+        */
+        //Unclear if the snippet above is necessary?
+        //Got the idea from advice I read online but 
+        // Appears to run no differently than the snippet below?
+        // Leave commented out just in case it is needed to revert to 
+        // at any point.
+        GameFrame gameFrame = new GameFrame("Ark Tracker V3");
 
 
 

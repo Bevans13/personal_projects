@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.io.File;
-
 import javax.swing.*;
 
 public class MainMenuPanel extends JPanel{
@@ -15,7 +13,11 @@ public class MainMenuPanel extends JPanel{
     private static int buttonHeight = MainMenuPanelHeight/12;
 
     //Testing making an Icon show using JLabel
-    private static JLabel iconTest = new JLabel(new ImageIcon("/Users/brendenaevans/Documents/GHProjects/personal_projects/ArkTrackerImages/RaptorIcon.png"));
+    /* Currently unalbe to get to work try again later
+    // See line 52 fo this Class as well (in drawLabel())
+    private static File testFile = new File("../../ArkTrackerImages/RaptorIcon.png");
+    private static JLabel iconTest = new JLabel(new ImageIcon(testFile.getAbsolutePath()));
+    */
 
     public MainMenuPanel() {
         super();
@@ -24,7 +26,6 @@ public class MainMenuPanel extends JPanel{
         theIslandMenuButton = new JButton("The Island");
         theCenterMenuButton = new JButton("The Center");
         paint(getGraphics());
-
     }
 
     @Override
@@ -42,10 +43,14 @@ public class MainMenuPanel extends JPanel{
     public void drawLabel(Graphics g) {
         label.setBounds(MainMenuPanelWidth/2-(80/2), 15, 80, 25);
         add(label);
-        File file = new File("RaptorIcon.png");
-        System.out.println(file.getAbsolutePath());
+
+        //Testing area for Icon implementations
+        /* Unable to get to work, try again later
+        // See line 20 of this Class as well
+        System.out.println(testFile.getAbsolutePath());
         iconTest.setBounds(400, 400, 125, 125);
         add(iconTest);
+         */
     }
 
     public void drawButtons(Graphics g) {
