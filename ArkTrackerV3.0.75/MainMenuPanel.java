@@ -25,7 +25,7 @@ public class MainMenuPanel extends JPanel{
         label = new JLabel("Main Menu");
         theIslandMenuButton = new JButton("The Island");
         theCenterMenuButton = new JButton("The Center");
-        // unneeded?? paint(getGraphics());
+        paint(getGraphics());
     }
 
     @Override

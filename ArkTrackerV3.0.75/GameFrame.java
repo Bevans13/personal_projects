@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.EventListener;
 import java.awt.*;
 
 public class GameFrame extends JFrame implements ActionListener {
@@ -10,7 +11,9 @@ public class GameFrame extends JFrame implements ActionListener {
     MainMenuPanel mainMenuPanel;
     WorldPanel theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
-    
+    //Timer seems to help with CPU issue but only on Main Menu
+                //Still trying to figure out how to apply fix to other Panels
+    Timer gameFrameTimer = new Timer(1000, this);
 
     public static void main(String[] args) {
         
@@ -105,7 +108,6 @@ public class GameFrame extends JFrame implements ActionListener {
         //Main Menu Buttons to move to each worldPanel
         if (parent == mainMenuPanel) {
             goToPanel(source.getText());
-            
         }
         
         
@@ -182,6 +184,7 @@ public class GameFrame extends JFrame implements ActionListener {
     }
     public void goToPanel(String selectedPanel){
         cardLayout.show(userInterfacePanel, selectedPanel);
+        gameFrameTimer = new Timer(1000, this);
         
     }
 

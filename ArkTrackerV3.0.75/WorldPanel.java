@@ -97,6 +97,9 @@ public class WorldPanel extends JPanel implements ActionListener{
     private int currentPage = 1;
     private JLabel pageIndicator = new JLabel("Page #"+currentPage);
 
+    //Attempt to fix CPU Usage by implementing timers
+    Timer worldTimer;
+
     // Default Constructor (mainly to test functionality of initial program)
     public WorldPanel() {
         super();
@@ -117,6 +120,11 @@ public class WorldPanel extends JPanel implements ActionListener{
         label = new JLabel(this.worldName);
         tames = new ArrayList<>();
         SaveFileManager.readSaveData(this);
+
+        //Attempt to try and fix CPU issues when viewing the worlds
+        //Also implemented ActionListener but left Action Performed 
+        //method blank since all actions are controlled by the Game Frame
+        //worldTimer = new Timer(1000/30, this);
 
         setBackground(Color.WHITE);
         paint(getGraphics());
@@ -452,7 +460,7 @@ public class WorldPanel extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        paint(getGraphics());
+       //paint(getGraphics());
     }
 
 }
