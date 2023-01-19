@@ -96,9 +96,6 @@ public class WorldPanel extends JPanel {
     private int currentPage = 1;
     private JLabel pageIndicator = new JLabel("Page #"+currentPage);
 
-    //Attempt to fix CPU Usage by implementing timers
-    Timer worldTimer;
-
     // Default Constructor (mainly to test functionality of initial program)
     public WorldPanel() {
         super();
@@ -119,8 +116,6 @@ public class WorldPanel extends JPanel {
         label = new JLabel(this.worldName);
         tames = new ArrayList<>();
         SaveFileManager.readSaveData(this);
-
-        //worldTimer = new Timer(1000, GameFrame.ge);
 
         setBackground(Color.WHITE);
         paint(getGraphics());
@@ -338,10 +333,6 @@ public class WorldPanel extends JPanel {
             case "Parasaur":  
             Parasaur parasaur = new Parasaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
             tames.add(parasaur);
-                break;
-            case "Pegomastax":
-            Pegomastax pegomastax = new Pegomastax(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
-            tames.add(pegomastax);
                 break;
             case "Pteranadon":  
             Pteranadon pteranadon = new Pteranadon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);

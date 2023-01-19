@@ -11,7 +11,7 @@ public class GameFrame extends JFrame implements ActionListener {
     MainMenuPanel mainMenuPanel;
     WorldPanel theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
-    
+    Timer gameFrameTimer = new Timer(1000, this);
 
     public static void main(String[] args) {
         
@@ -19,7 +19,6 @@ public class GameFrame extends JFrame implements ActionListener {
             @Override
             public void run() {
                 GameFrame gameFrame = new GameFrame("Ark Tracker V3");
-                Timer gameFrameTimer = new Timer(1000, gameFrame);
             }
         });
         //Unclear if the snippet above is necessary?
@@ -42,7 +41,7 @@ public class GameFrame extends JFrame implements ActionListener {
         userInterfacePanel = new UserInterfacePanel(cardLayout);
         mainMenuPanel = new MainMenuPanel();
         
-
+        
 
         //adds all sub-panels to UIPanel, which can be switched between
         userInterfacePanel.add(mainMenuPanel, "Main Menu");

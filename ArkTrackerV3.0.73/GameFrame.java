@@ -1,7 +1,6 @@
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.EventListener;
 import java.awt.*;
 
 public class GameFrame extends JFrame implements ActionListener {
@@ -9,25 +8,25 @@ public class GameFrame extends JFrame implements ActionListener {
     CardLayout cardLayout;
     UserInterfacePanel userInterfacePanel;
     MainMenuPanel mainMenuPanel;
+    WorldPanel worldPanel;
     WorldPanel theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
-    
 
     public static void main(String[] args) {
-        
+        /* 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 GameFrame gameFrame = new GameFrame("Ark Tracker V3");
-                Timer gameFrameTimer = new Timer(1000, gameFrame);
             }
         });
+        */
         //Unclear if the snippet above is necessary?
         //Got the idea from advice I read online but 
         // Appears to run no differently than the snippet below?
         // Leave commented out just in case it is needed to revert to 
         // at any point.
-        //GameFrame gameFrame = new GameFrame("Ark Tracker V3");
+        GameFrame gameFrame = new GameFrame("Ark Tracker V3");
 
 
 
@@ -41,11 +40,13 @@ public class GameFrame extends JFrame implements ActionListener {
         cardLayout = new CardLayout();
         userInterfacePanel = new UserInterfacePanel(cardLayout);
         mainMenuPanel = new MainMenuPanel();
+        worldPanel = new WorldPanel();
         
-
+        
 
         //adds all sub-panels to UIPanel, which can be switched between
         userInterfacePanel.add(mainMenuPanel, "Main Menu");
+        userInterfacePanel.add(worldPanel, "World Panel");
         userInterfacePanel.add(theIslandPanel, theIslandPanel.getWorldName());
         userInterfacePanel.add(theCenterPanel, theCenterPanel.getWorldName());
     
@@ -74,7 +75,6 @@ public class GameFrame extends JFrame implements ActionListener {
         pack();
         setLocationByPlatform(true);
         setVisible(true);
-    
         
     }
 
@@ -178,7 +178,7 @@ public class GameFrame extends JFrame implements ActionListener {
     }
     public void goToPanel(String selectedPanel){
         cardLayout.show(userInterfacePanel, selectedPanel);
-        
+
     }
 
     public void saveData(){
