@@ -178,8 +178,8 @@ public class GameFrame extends JFrame implements ActionListener {
             ((WorldPanel) parent).getPageIndicator().setText("Page #"+cp);
             ((WorldPanel) parent).viewCreatures();
         }
-    }
 
+    }
     public void goToPanel(String selectedPanel){
         cardLayout.show(userInterfacePanel, selectedPanel);
         
