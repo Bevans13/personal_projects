@@ -119,6 +119,7 @@ public class WorldPanel extends JPanel implements ActionListener{
         SaveFileManager.readSaveData(this);
 
         setBackground(Color.WHITE);
+        //paint(getGraphics());
     }
 
     // seems to run automatically as part of contructor? should probable check the

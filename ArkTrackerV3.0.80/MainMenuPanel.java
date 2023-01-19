@@ -21,11 +21,10 @@ public class MainMenuPanel extends JPanel{
 
     public MainMenuPanel() {
         super();
+        setBackground(Color.WHITE);
         label = new JLabel("Main Menu");
         theIslandMenuButton = new JButton("The Island");
         theCenterMenuButton = new JButton("The Center");
-        
-        setBackground(Color.WHITE);
     }
 
     @Override

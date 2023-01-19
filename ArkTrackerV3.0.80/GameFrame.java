@@ -7,10 +7,9 @@ public class GameFrame extends JFrame implements ActionListener {
 
     CardLayout cardLayout;
     UserInterfacePanel userInterfacePanel;
-    MainMenuPanel mainMenuPanel = new MainMenuPanel();
+    MainMenuPanel mainMenuPanel;
     WorldPanel theIslandPanel = new WorldPanel("The Island", "THE_ISLAND_DATA.ser");
     WorldPanel theCenterPanel = new WorldPanel("The Center", "THE_CENTER_DATA.ser");
-    //Timer gameFrameTimer = new Timer(1000, this);
     
 
     public static void main(String[] args) {
@@ -41,11 +40,11 @@ public class GameFrame extends JFrame implements ActionListener {
         //Instantiating All Panels (including Worlds)
         cardLayout = new CardLayout();
         userInterfacePanel = new UserInterfacePanel(cardLayout);
+        mainMenuPanel = new MainMenuPanel();
         
 
 
         //adds all sub-panels to UIPanel, which can be switched between
-
         userInterfacePanel.add(mainMenuPanel, "Main Menu");
         userInterfacePanel.add(theIslandPanel, theIslandPanel.getWorldName());
         userInterfacePanel.add(theCenterPanel, theCenterPanel.getWorldName());
@@ -75,9 +74,8 @@ public class GameFrame extends JFrame implements ActionListener {
         pack();
         setLocationByPlatform(true);
         setVisible(true);
-        //Fixed Flickering and CPU issue (for initial open)
-        this.requestFocus();
-
+    
+        
     }
 
     
@@ -92,7 +90,7 @@ public class GameFrame extends JFrame implements ActionListener {
         //Return Button uses isReturnButton Method to make all return buttons 
         //take it to the main menu panel
         if (e.getActionCommand().equals("Return")) {
-            
+            cardLayout.show(userInterfacePanel, "Main Menu");
             //Used to make extra fields disappear upon return but maintain
             //Buttons/Labels for returning to that panel later
             ((WorldPanel) parent).removeAll();
@@ -100,8 +98,7 @@ public class GameFrame extends JFrame implements ActionListener {
             ((WorldPanel) parent).drawLabel(getGraphics());
             ((WorldPanel) parent).setCurrentPage(1);
             ((WorldPanel) parent).getPageIndicator().setText("Page #1");
-
-            goToPanel("Main Menu");
+            
         }
         
         
@@ -181,14 +178,12 @@ public class GameFrame extends JFrame implements ActionListener {
             int cp = ((WorldPanel) parent).getCurrentPage();
             ((WorldPanel) parent).getPageIndicator().setText("Page #"+cp);
             ((WorldPanel) parent).viewCreatures();
-
         }
     }
 
     public void goToPanel(String selectedPanel){
         cardLayout.show(userInterfacePanel, selectedPanel);
-        //Fixed Flickering and CPU Issue
-        userInterfacePanel.grabFocus();
+        
     }
 
     public void saveData(){
