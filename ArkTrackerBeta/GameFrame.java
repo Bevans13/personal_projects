@@ -84,7 +84,7 @@ public class GameFrame extends JFrame implements ActionListener {
         //Variables to detect Source Button and it's parent container
         JButton source = (JButton) e.getSource();
         JPanel parent = (JPanel) source.getParent();
-        System.out.println(parent.toString());
+        //Remove System.out.println(parent.toString());
         
         //Declaring the results of each button being pressed
 
