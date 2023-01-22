@@ -40,7 +40,6 @@ public class MainMenu extends JPanel{
         allWorlds = AppWindow.getUserInterface().getAllWorlds();
 
         //Loop to iterate each world and give it a button and bounds for that button
-        // also Adds actionListener for MainMenu
         for (int i = 0; i < allWorlds.length; i++) {
             World thisWorld = allWorlds[i];
             thisWorld.getWorldButton().setBounds(((i*4)+1)*AppWindow.getFrameWidth()/16, AppWindow.getFrameHeight()/9, worldButtonWidth, worldButtonHeight);

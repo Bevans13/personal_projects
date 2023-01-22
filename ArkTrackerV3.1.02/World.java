@@ -21,7 +21,7 @@ public class World extends JPanel{
         worldLabel = new JLabel(worldName);
 
         //Add ActionListeners
-        // returnButton.addActionListener(AppWindow.getUserInterface());
+        returnButton.addActionListener(AppWindow.getUserInterface());
     }
 
     //Runs automatically with constructor to set Panel Size
@@ -34,27 +34,11 @@ public class World extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawLabel(g);
-        drawButtons(g);
     }
 
     public void drawLabel(Graphics g) {
         worldLabel.setBounds(AppWindow.getFrameWidth()/2-40, 15, 80, 25);
         add(worldLabel);
-    }
-
-    public void drawButtons(Graphics g){
-        returnButton.setBounds(15, 15, 75, 50);
-        add(returnButton);
-        returnButton.addActionListener(AppWindow.getUserInterface());
-
-        addCreatureButton.setBounds(returnButton.getX() + returnButton.getWidth() + 15, 15, 100, 100);
-        add(addCreatureButton);
-        addCreatureButton.addActionListener(AppWindow.getUserInterface());
-
-        viewCreatureButton.setBounds(addCreatureButton.getX() + addCreatureButton.getWidth() + 15, 15, 100, 100);
-        add(viewCreatureButton);
-        viewCreatureButton.addActionListener(AppWindow.getUserInterface());
-
     }
 
     //Getters & Setters

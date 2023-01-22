@@ -46,15 +46,6 @@ public class World extends JPanel{
         returnButton.setBounds(15, 15, 75, 50);
         add(returnButton);
         returnButton.addActionListener(AppWindow.getUserInterface());
-
-        addCreatureButton.setBounds(returnButton.getX() + returnButton.getWidth() + 15, 15, 100, 100);
-        add(addCreatureButton);
-        addCreatureButton.addActionListener(AppWindow.getUserInterface());
-
-        viewCreatureButton.setBounds(addCreatureButton.getX() + addCreatureButton.getWidth() + 15, 15, 100, 100);
-        add(viewCreatureButton);
-        viewCreatureButton.addActionListener(AppWindow.getUserInterface());
-
     }
 
     //Getters & Setters
