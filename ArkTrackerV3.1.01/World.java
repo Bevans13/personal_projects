@@ -7,10 +7,6 @@ public class World extends JPanel{
     private String saveFilePath;
 
     //Declare Buttons that will exist for every world
-    private JLabel worldLabel;
-    private JButton worldButton;
-    private static int worldButtonWidth = AppWindow.getFrameWidth()/8;
-    private static int worldButtonHeight = AppWindow.getFrameHeight()/12;
     private JButton returnButton = new JButton("Return");
     private JButton addCreatureButton = new JButton("Add");
     private JButton viewCreatureButton = new JButton("View");
@@ -19,7 +15,6 @@ public class World extends JPanel{
         super();
         this.worldName = worldName;
         this.saveFilePath = filePath;
-        worldButton = new JButton(worldName);
 
         //Add ActionListeners
         returnButton.addActionListener(AppWindow.getUserInterface());
@@ -40,14 +35,6 @@ public class World extends JPanel{
         return saveFilePath;
     } public void setSaveFilePath(String saveFilePath) {
         this.saveFilePath = saveFilePath;
-    } public JButton getWorldButton() {
-        return worldButton;
-    } public JLabel getWorldLabel() {
-        return worldLabel;
-    } public static int getWorldButtonHeight() {
-        return worldButtonHeight;
-    } public static int getWorldButtonWidth() {
-        return worldButtonWidth;
     }
 
 }
