@@ -46,19 +46,36 @@ public class Creature implements Serializable{
     private static JLabel newCreatureTorporLabel = new JLabel("Torpor: ");
     private static JTextField newCreatureTorporTextField = new JTextField();
     private static JLabel[] newCreatureLabels = new JLabel[] {
-            newCreatureNameLabel, newCreatureSpeciesLabel, newCreatureGenderLabel,
-            newCreatureHPLabel, newCreatureStaminaLabel, newCreatureOxygenLabel,
-            newCreatureFoodLabel, newCreatureWeightLabel, newCreatureMeleeLabel,
-            newCreatureMovementLabel, newCreatureTorporLabel
-    };
+    newCreatureNameLabel, newCreatureSpeciesLabel, newCreatureGenderLabel,
+    newCreatureHPLabel, newCreatureStaminaLabel, newCreatureOxygenLabel,
+    newCreatureFoodLabel, newCreatureWeightLabel, newCreatureMeleeLabel,
+    newCreatureMovementLabel, newCreatureTorporLabel};
     private static JTextField[] newCreatureTextFields = new JTextField[] {
-            newCreatureNameTextField, newCreatureSpeciesTextField, newCreatureGenderTextField,
-            newCreatureHPTextField, newCreatureStaminaTextField, newCreatureOxygenTextField,
-            newCreatureFoodTextField, newCreatureWeighTextField, newCreatureMeleeTextField,
-            newCreatureMovementTextField, newCreatureTorporTextField
-    };
+    newCreatureNameTextField, newCreatureSpeciesTextField, newCreatureGenderTextField,
+    newCreatureHPTextField, newCreatureStaminaTextField, newCreatureOxygenTextField,
+    newCreatureFoodTextField, newCreatureWeighTextField, newCreatureMeleeTextField,
+    newCreatureMovementTextField, newCreatureTorporTextField};
     private static JButton submitTextFieldButton = new JButton("Submit");
 
+    //View Option Labels and Buttons
+    private JLabel nameLabel;
+    private JLabel speciesLabel;
+    private JLabel genderLabel;
+    private JLabel healthLabel;
+    private JLabel staminaLabel;
+    private JLabel oxygenLabel;
+    private JLabel foodLabel;
+    private JLabel weightLabel;
+    private JLabel meleeLabel;
+    private JLabel movementLabel;
+    private JLabel torporLabel;
+    private JLabel[] creatureDisplayLabels = new JLabel[]{
+        nameLabel, speciesLabel, genderLabel,
+        healthLabel,staminaLabel,oxygenLabel,
+        foodLabel, weightLabel, meleeLabel,
+        movementLabel,torporLabel};
+
+    
     public Creature(String n, String sp, char gen, double health, double stam, double oxy, 
     double f, double w, double mel, double move, double torp){
         name = n;
@@ -91,6 +108,19 @@ public class Creature implements Serializable{
         submitTextFieldButton.setBounds(335, 15, 100, 100);
         panel.add(submitTextFieldButton);
     }
+
+    public static void removeCreateCreatureTextFields(JPanel panel) {
+        for (int i = 0; i < newCreatureLabels.length; i++) {
+            panel.remove(newCreatureLabels[i]);
+        }
+        for (int i = 0; i < newCreatureLabels.length; i++) {
+            newCreatureTextFields[i].setText("");
+            panel.remove(newCreatureTextFields[i]);
+        }
+        panel.remove(submitTextFieldButton);
+    }
+
+    
 
     public void display(){
         System.out.println(name+" "+species+" "+gender);

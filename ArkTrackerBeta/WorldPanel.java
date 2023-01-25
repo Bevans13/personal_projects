@@ -333,9 +333,9 @@ public class WorldPanel extends JPanel implements ActionListener{
             Pegomastax pegomastax = new Pegomastax(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
             tames.add(pegomastax);
                 break;
-            case "Pteranadon":  
-            Pteranadon pteranadon = new Pteranadon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
-            tames.add(pteranadon);
+            case "Pteranodon":  
+            Pteranodon pteranodon = new Pteranodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            tames.add(pteranodon);
                 break;
             case "Pulmonoscorpius":
             Pulmonoscorpius pulmonoscorpius = new Pulmonoscorpius(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
