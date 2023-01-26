@@ -280,6 +280,9 @@ public class WorldPanel extends JPanel implements ActionListener{
     double w, double mel, double mov, double torp){
         //Sort and create the creatures based on species
         // Better or more effective way to apply polymorphism??
+        Creature creature = new Creature(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+        
+
         switch (sp) {
             case "Allosaurus":
             Allosaurus allosaurus = new Allosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);

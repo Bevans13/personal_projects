@@ -57,68 +57,47 @@ public class Creature implements Serializable{
     // Setter/Getter section
     public String getName() {
         return name;
-    }
-    public void setName(String name) {
+    } public void setName(String name) {
         this.name = name;
-    }
-    public String getSpecies() {
+    } public String getSpecies() {
         return species;
-    }
-    public void setSpecies(String species) {
+    } public void setSpecies(String species) {
         this.species = species;
-    }
-    public char getGender() {
+    } public char getGender() {
         return gender;
-    }
-    public void setGender(char gender) {
+    } public void setGender(char gender) {
         this.gender = gender;
-    }
-    public double getHp() {
+    } public double getHp() {
         return hp;
-    }
-    public void setHp(double hp) {
+    } public void setHp(double hp) {
         this.hp = hp;
-    }
-    public double getStamina() {
+    } public double getStamina() {
         return stamina;
-    }
-    public void setStamina(double stamina) {
+    } public void setStamina(double stamina) {
         this.stamina = stamina;
-    }
-    public double getOxygen() {
+    } public double getOxygen() {
         return oxygen;
-    }
-    public void setOxygen(double oxygen) {
+    } public void setOxygen(double oxygen) {
         this.oxygen = oxygen;
-    }
-    public double getFood() {
+    } public double getFood() {
         return food;
-    }
-    public void setFood(double food) {
+    } public void setFood(double food) {
         this.food = food;
-    }
-    public double getWeight() {
+    } public double getWeight() {
         return weight;
-    }
-    public void setWeight(double weight) {
+    } public void setWeight(double weight) {
         this.weight = weight;
-    }
-    public double getMelee() {
+    } public double getMelee() {
         return melee;
-    }
-    public void setMelee(double melee) {
+    } public void setMelee(double melee) {
         this.melee = melee;
-    }
-    public double getMovement() {
+    } public double getMovement() {
         return movement;
-    }
-    public void setMovement(double movement) {
+    } public void setMovement(double movement) {
         this.movement = movement;
-    }
-    public double getTorpor() {
+    } public double getTorpor() {
         return torpor;
-    }
-    public void setTorpor(double torpor) {
+    } public void setTorpor(double torpor) {
         this.torpor = torpor;
     }
 }
