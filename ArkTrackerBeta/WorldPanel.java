@@ -67,6 +67,7 @@ public class WorldPanel extends JPanel implements ActionListener{
 
     // ArrayList containing Tames for each world
     private ArrayList<Creature> tames;
+    private int controlVariable;
 
     //View Option Labels and Buttons
     private JLabel creature1Name;
@@ -213,7 +214,7 @@ public class WorldPanel extends JPanel implements ActionListener{
         int x;
         int y;
         //allows i to be manipulated and varied based on the page of creatures program is on
-        int controlVariable = (9*(currentPage-1));
+        controlVariable = (9*(currentPage-1));
 
         
         
@@ -232,14 +233,14 @@ public class WorldPanel extends JPanel implements ActionListener{
             if ((i+controlVariable)/3==1+(controlVariable/3)) {
                 x = (WorldPanelWidth/12)+(((i-3) * 4)*(WorldPanelWidth/12));
                 y = 400;
-                displayCreature(x, y, i);
+                displayCreature(x, y, i+controlVariable);
                 
             }
             // 6 7 8
             if ((i+controlVariable)/3==2+(controlVariable/3)) {
                 x = (WorldPanelWidth/12)+(((i-6) * 4)*(WorldPanelWidth/12));
                 y = 600;
-                displayCreature(x, y, i);
+                displayCreature(x, y, i+controlVariable);
                 
             }
             if (tames.size()>9) {
@@ -256,45 +257,51 @@ public class WorldPanel extends JPanel implements ActionListener{
     }
 
     public void displayCreature(int x, int y, int i){
-        int x2 = x + WorldPanelWidth/12;
         int width = WorldPanelWidth/12;
         int height = 25;
+        int x1 = 0;
+        int x2 = x1 + width;
+
+        JPanel creatureDispJPanel = new JPanel();
+        creatureDispJPanel.setBounds(x, y, width*2, height*8);
 
         // left column
         creature1Name = new JLabel(tames.get(i).getName());
-        creature1Name.setBounds(x, y, width, height);
-        add(creature1Name);
+        creature1Name.setBounds(x1, 25, width, height);
+        creatureDispJPanel.add(creature1Name);
         creature1Species = new JLabel(tames.get(i).getSpecies());
-        creature1Species.setBounds(x, y + 25, width, height);
-        add(creature1Species);
+        creature1Species.setBounds(x1, 50, width, height);
+        creatureDispJPanel.add(creature1Species);
         creature1Gender = new JLabel(String.valueOf(tames.get(i).getGender()));
-        creature1Gender.setBounds(x, y + 50, width, height);
-        add(creature1Gender);
+        creature1Gender.setBounds(x1, 75, width, height);
+        creatureDispJPanel.add(creature1Gender);
         creature1Oxygen = new JLabel("O2   "+String.valueOf(tames.get(i).getOxygen()));
-        creature1Oxygen.setBounds(x, y + 75, width, height);
-        add(creature1Oxygen);
+        creature1Oxygen.setBounds(x1, 100, width, height);
+        creatureDispJPanel.add(creature1Oxygen);
         creature1Food = new JLabel("Food  "+String.valueOf(tames.get(i).getFood()));
-        creature1Food.setBounds(x, y + 100, width, height);
-        add(creature1Food);
+        creature1Food.setBounds(x1, 125, width, height);
+        creatureDispJPanel.add(creature1Food);
         //right column
         creature1Health = new JLabel("HP  " + Double.toString(tames.get(i).getHp()));
-        creature1Health.setBounds(x2, y, width, height);
-        add(creature1Health);
+        creature1Health.setBounds(x2, 0, width, height);
+        creatureDispJPanel.add(creature1Health);
         creature1Stamina = new JLabel("Stam  "+String.valueOf(tames.get(i).getStamina()));
-        creature1Stamina.setBounds(x2, y + 25, width, height);
-        add(creature1Stamina);
+        creature1Stamina.setBounds(x2, 25, width, height);
+        creatureDispJPanel.add(creature1Stamina);
         creature1Weight = new JLabel("Weight  "+String.valueOf(tames.get(i).getWeight()));
-        creature1Weight.setBounds(x2, y + 50, width, height);
-        add(creature1Weight);
+        creature1Weight.setBounds(x2, 50, width, height);
+        creatureDispJPanel.add(creature1Weight);
         creature1Melee = new JLabel("Melee  "+String.valueOf(tames.get(i).getMelee()));
-        creature1Melee.setBounds(x2, y + 75, width, height);
-        add(creature1Melee);
+        creature1Melee.setBounds(x2, 75, width, height);
+        creatureDispJPanel.add(creature1Melee);
         creature1Movement = new JLabel("Movement  "+String.valueOf(tames.get(i).getMovement()));
-        creature1Movement.setBounds(x2, y + 100, width, height);
-        add(creature1Movement);
+        creature1Movement.setBounds(x2, 100, width, height);
+        creatureDispJPanel.add(creature1Movement);
         creature1Torpor = new JLabel("Torpor  "+String.valueOf(tames.get(i).getTorpor()));
-        creature1Torpor.setBounds(x2, y + 125, width, height);
-        add(creature1Torpor); 
+        creature1Torpor.setBounds(x2, 125, width, height);
+        creatureDispJPanel.add(creature1Torpor); 
+
+        add(creatureDispJPanel);
     }
 
     //Method is called when the Submit Button is pressed
@@ -681,7 +688,7 @@ public class WorldPanel extends JPanel implements ActionListener{
 
          for (int i = 0; i < RIPButtons.length; i++) {
             if (RIPButtons[i]==button) {
-                tames.remove(i);
+                tames.remove(i+controlVariable);
             }
          }
         
