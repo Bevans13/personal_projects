@@ -2,7 +2,12 @@ package Creatures;
 
 import java.io.Serializable;
 public class Creature implements Serializable, Comparable<Creature>{
+    //perhaps make a Variation Enum Class for constant variables?
+    public enum Variation {
+        REGULAR, ABERRANT, TEK, R, X
+    };
 
+    private Variation variety;
     private String name;
     private String species;
     private char gender;
@@ -15,14 +20,9 @@ public class Creature implements Serializable, Comparable<Creature>{
     private double movement;
     private double torpor;
 
-    //perhaps make a Variation Enum Class for constant variables?
-    private String Variation;
-    private boolean aberrantVariant;
-    private boolean tekVariant;
-    private boolean RVariant;
 
     public Creature(String n, String sp, char gen, double health, double stam, double oxy, 
-    double f, double w, double mel, double move, double torp){
+    double f, double w, double mel, double move, double torp, Variation v){
         name = n;
         species = sp;
         gender = gen;
@@ -34,9 +34,7 @@ public class Creature implements Serializable, Comparable<Creature>{
         melee = mel;
         movement = move;
         torpor = torp;
-        aberrantVariant = false;
-        tekVariant = false;
-        RVariant = false;
+        variety = v;
     }
 
 
@@ -60,7 +58,7 @@ public class Creature implements Serializable, Comparable<Creature>{
     @Override
     public String toString() {
         return name+","+species+","+gender+","+hp+","+stamina+","+oxygen+","+
-        food+","+weight+","+melee+","+movement+","+torpor+", Object of "+getClass()+" Class";
+        food+","+weight+","+melee+","+movement+","+torpor+", Object of "+getClass()+" Class: " +variety;
     }
     
     // Setter/Getter section
@@ -108,18 +106,10 @@ public class Creature implements Serializable, Comparable<Creature>{
         return torpor;
     } public void setTorpor(double torpor) {
         this.torpor = torpor;
-    } public void setAberrantVariant(boolean aberrantVariant) {
-        this.aberrantVariant = aberrantVariant;
-    } public void setTekVariant(boolean tekVariant) {
-        this.tekVariant = tekVariant;
-    } public boolean getAberrantVariant(){
-        return aberrantVariant;
-    } public boolean getTekVariant(){
-        return tekVariant;
-    } public boolean getRVariant(){
-        return RVariant;
-    } public void setRVariant(boolean rVariant) {
-        RVariant = rVariant;
+    } public Variation getVariety() {
+        return variety;
+    } public void setVariety(Variation variety) {
+        this.variety = variety;
     }
 
 

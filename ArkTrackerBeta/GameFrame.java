@@ -1,5 +1,8 @@
 
 import javax.swing.*;
+
+import Creatures.Creature.Variation;
+
 import java.awt.event.*;
 import java.awt.*;
 
@@ -144,23 +147,24 @@ public class GameFrame extends JFrame implements ActionListener {
             Double creatureMelee = Double.valueOf(((WorldPanel) parent).getNewCreatureMeleeTextField().getText());
             Double creatureMovement = Double.valueOf(((WorldPanel) parent).getNewCreatureMovementTextField().getText());
             Double creatureTorpor = Double.valueOf(((WorldPanel) parent).getNewCreatureTorporTextField().getText());
+            Variation creatureVariety = Variation.REGULAR;
             
             WorldPanel currentWorld = ((WorldPanel) parent);
             currentWorld.createCreature(creatureName, creatureSpecies, 
             creatureGender, creatureHP, creatureStamina, creatureOxygen, 
             creatureFood, creatureWeight, creatureMelee, creatureMovement, 
-            creatureTorpor);
+            creatureTorpor, creatureVariety );
 
             //Temp section to generate bunch of dino's for testing
-            currentWorld.createCreature("Bothoth", "Raptor", 'M', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("Bathoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("Baahoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("rthoth", "Allosaurus", 'F', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("dtheno", "Allosaurus", 'M', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("Docttt", "dodo", 'm', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("Dactot", "dodo", 'f', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("rotehtu", "dodo", 'M', 100, 100, 100, 100, 100, 100, 100, 100);
-            currentWorld.createCreature("anote", "dodo", 'F', 100, 100, 100, 100, 100, 100, 100, 100);
+            currentWorld.createCreature("Bothoth", "Raptor", 'M', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("Bathoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("Baahoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("rthoth", "Allosaurus", 'F', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("dtheno", "Allosaurus", 'M', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("Docttt", "dodo", 'm', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("Dactot", "dodo", 'f', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("rotehtu", "dodo", 'M', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
+            currentWorld.createCreature("anote", "dodo", 'F', 100, 100, 100, 100, 100, 100, 100, 100, creatureVariety);
             System.out.println(creatureName);   
 
             ((WorldPanel) parent).removeCreateCreatureTextFields();

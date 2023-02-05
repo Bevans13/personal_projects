@@ -1,16 +1,14 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import Creatures.*;
+import Creatures.Creature.Variation;
 
 public class WorldPanel extends JPanel{
 
@@ -312,7 +310,7 @@ public class WorldPanel extends JPanel{
     //Determines Species and creates Object of correct Sub-Class
     //Then added that creature to the Tames list for the world
     public void createCreature(String n, String sp, char gen, double hp, double stam, double oxy, double f,
-    double w, double mel, double mov, double torp){
+    double w, double mel, double mov, double torp, Variation v){
         //Sort and create the creatures based on species
         // Better or more effective way to apply polymorphism??
         sp = sp.toLowerCase();
@@ -320,367 +318,367 @@ public class WorldPanel extends JPanel{
 
         switch (sp) {
             case "achatina":
-            Achatina achatina = new Achatina(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Achatina achatina = new Achatina(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(achatina);
                 break;
             case "allosaurus":
-            Allosaurus allosaurus = new Allosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Allosaurus allosaurus = new Allosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(allosaurus);
                 break;
             case "angler":
-            Angler angler = new Angler(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Angler angler = new Angler(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(angler);
                 break;
             case "ankylosaurus":
-            Ankylosaurus ankylosaurus = new Ankylosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Ankylosaurus ankylosaurus = new Ankylosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(ankylosaurus);
                 break;
             case "araneo":
-            Araneo araneo = new Araneo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Araneo araneo = new Araneo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(araneo);
                 break;
             case "archaeopteryx":
-            Archaeopteryx archaeopteryx = new Archaeopteryx(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Archaeopteryx archaeopteryx = new Archaeopteryx(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(archaeopteryx);
                 break;
             case "argentavis":
-            Argentavis argentavis = new Argentavis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Argentavis argentavis = new Argentavis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(argentavis);
                 break;
             case "arthropluera":
-            Arthropluera arthropluera = new Arthropluera(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Arthropluera arthropluera = new Arthropluera(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(arthropluera);
                 break;
             case "baryonyx":
-            Baryonyx baryonyx = new Baryonyx(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Baryonyx baryonyx = new Baryonyx(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(baryonyx);
                 break;
             case "basilosaurus":
-            Basilosaurus basilosaurus = new Basilosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Basilosaurus basilosaurus = new Basilosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(basilosaurus);
                 break;
             case "beelzebufo":
-            Beelzebufo Beelzebufo = new Beelzebufo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Beelzebufo Beelzebufo = new Beelzebufo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(Beelzebufo);
                 break;
             case "brontosaurus":
-            Brontosaurus brontosaurus = new Brontosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Brontosaurus brontosaurus = new Brontosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(brontosaurus);
                 break;
             case "carbonemys":
-            Carbonemys carbonemys = new Carbonemys(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Carbonemys carbonemys = new Carbonemys(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(carbonemys);
                 break;
             case "carcharodontosaurus":
-            Carcharodontosaurus carcharodontosaurus = new Carcharodontosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Carcharodontosaurus carcharodontosaurus = new Carcharodontosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(carcharodontosaurus);
                 break;
             case "carnotaurus":
-            Carnotaurus carnotaurus = new Carnotaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Carnotaurus carnotaurus = new Carnotaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(carnotaurus);
                 break;
             case "castoroides":
-            Castoroides castoroides = new Castoroides(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Castoroides castoroides = new Castoroides(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(castoroides);
                 break;
             case "chalicotherium":
-            Chalicotherium chalicotherium = new Chalicotherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Chalicotherium chalicotherium = new Chalicotherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(chalicotherium);
                 break;
             case "coelacanth":
-            Coelacanth coelacanth = new Coelacanth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Coelacanth coelacanth = new Coelacanth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(coelacanth);
                 break;
             case "compy":
-            Compy compy = new Compy(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Compy compy = new Compy(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(compy);
                 break;
             case "daeodon":
-            Daeodon daeodon = new Daeodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Daeodon daeodon = new Daeodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(daeodon);
                 break;
             case "dilophosaur":
-            Dilophosaur dilophosaur = new Dilophosaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Dilophosaur dilophosaur = new Dilophosaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dilophosaur);
                 break;
             case "dimetrodon":
-            Dimetrodon dimetrodon = new Dimetrodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Dimetrodon dimetrodon = new Dimetrodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dimetrodon);
                 break;
             case "dimorphodon":
-            Dimorphodon dimorphodon = new Dimorphodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Dimorphodon dimorphodon = new Dimorphodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dimorphodon);
                 break;
             case "diplocaulus":
-            Diplocaulus diplocaulus = new Diplocaulus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Diplocaulus diplocaulus = new Diplocaulus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(diplocaulus);
                 break;
             case "diplodocus":
-            Diplodocus diplodocus = new Diplodocus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Diplodocus diplodocus = new Diplodocus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(diplodocus);
                 break;
             case "direbear":
-            Direbear direbear = new Direbear(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Direbear direbear = new Direbear(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(direbear);
                 break;
             case "direwolf":
-            Direwolf direwolf = new Direwolf(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Direwolf direwolf = new Direwolf(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(direwolf);
                 break;
             case "dodo":
-            Dodo dodo = new Dodo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Dodo dodo = new Dodo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dodo);
                 break;
             case "doedicurus":
-            Doedicurus doedicurus = new Doedicurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Doedicurus doedicurus = new Doedicurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(doedicurus);
                 break;
             case "dung Beetle":
-            DungBeetle dungBeetle = new DungBeetle(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            DungBeetle dungBeetle = new DungBeetle(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dungBeetle);
                 break;
             case "dunkleosteus":
-            Dunkleosteus dunkleosteus = new Dunkleosteus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Dunkleosteus dunkleosteus = new Dunkleosteus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(dunkleosteus);
                 break;
             case "electrophorus":
-            Electrophorus electrophorus = new Electrophorus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Electrophorus electrophorus = new Electrophorus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(electrophorus);
                 break;
             case "equus":
-            Equus equus = new Equus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Equus equus = new Equus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(equus);
                 break;
             case "gallimimus":
-            Gallimimus gallimimus = new Gallimimus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Gallimimus gallimimus = new Gallimimus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(gallimimus);
                 break;
             case "giant bee":
-            GiantBee giantBee = new GiantBee(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            GiantBee giantBee = new GiantBee(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(giantBee);
                 break;
             case "giganotosaurus":
-            Giganotosaurus giganotosaurus = new Giganotosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Giganotosaurus giganotosaurus = new Giganotosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(giganotosaurus);
                 break;
             case "gigantopithecus":
-            Gigantopithecus gigantopithecus = new Gigantopithecus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Gigantopithecus gigantopithecus = new Gigantopithecus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(gigantopithecus);
                 break;
             case "hesperornis":
-            Hesperornis hesperornis = new Hesperornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Hesperornis hesperornis = new Hesperornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(hesperornis);
                 break;
             case "hyaenodon":
-            Hyaenodon hyaenodon = new Hyaenodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Hyaenodon hyaenodon = new Hyaenodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(hyaenodon);
                 break;
             case "ichthyornis":
-            Ichthyornis ichthyornis = new Ichthyornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Ichthyornis ichthyornis = new Ichthyornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(ichthyornis);
                 break;
             case "ichthyosaurus":
-            Ichthyosaurus ichthyosaurus = new Ichthyosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Ichthyosaurus ichthyosaurus = new Ichthyosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(ichthyosaurus);
                 break;
             case "iguanodon":
-            Iguanodon iguanodon = new Iguanodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Iguanodon iguanodon = new Iguanodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(iguanodon);
                 break;
             case "kairuku":
-            Kairuku kairuku = new Kairuku(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Kairuku kairuku = new Kairuku(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(kairuku);
                 break;
             case "kaprosuchus":
-            Kaprosuchus kaprosuchus = new Kaprosuchus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Kaprosuchus kaprosuchus = new Kaprosuchus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(kaprosuchus);
                 break;
             case "kentrosaurus":
-            Kentrosaurus kentrosaurus = new Kentrosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Kentrosaurus kentrosaurus = new Kentrosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(kentrosaurus);
                 break;
             case "liopleurodon":
-            Liopleurodon liopleurodon = new Liopleurodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Liopleurodon liopleurodon = new Liopleurodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(liopleurodon);
                 break;
             case "lystrosaurus":
-            Lystrosaurus lystrosaurus = new Lystrosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Lystrosaurus lystrosaurus = new Lystrosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(lystrosaurus);
                 break;
             case "mammoth":
-            Mammoth mammoth = new Mammoth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Mammoth mammoth = new Mammoth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(mammoth);
                 break;
             case "manta":
-            Manta manta = new Manta(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Manta manta = new Manta(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(manta);
                 break;
             case "megalania":
-            Megalania megalania = new Megalania(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Megalania megalania = new Megalania(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(megalania);
                 break;
             case "megaloceros":
-            Megaloceros megaloceros = new Megaloceros(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Megaloceros megaloceros = new Megaloceros(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(megaloceros);
                 break;
             case "megalodon":
-            Megalodon megalodon = new Megalodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Megalodon megalodon = new Megalodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(megalodon);
                 break;
             case "megalosaurus":
-            Megalosaurus megalosaurus = new Megalosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Megalosaurus megalosaurus = new Megalosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(megalosaurus);
                 break;
             case "megatherium":
-            Megatherium megatherium= new Megatherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Megatherium megatherium= new Megatherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(megatherium);
                 break;
             case "mesopithecus":
-            Mesopithecus mesopithecus = new Mesopithecus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Mesopithecus mesopithecus = new Mesopithecus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(mesopithecus);
                 break;
             case "microraptor":
-            Microraptor microraptor = new Microraptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Microraptor microraptor = new Microraptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(microraptor);
                 break;
             case "mosasaurus":
-            Mosasaurus mosasaurus = new Mosasaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Mosasaurus mosasaurus = new Mosasaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(mosasaurus);
                 break;
             case "moschops":
-            Moschops moschops = new Moschops(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Moschops moschops = new Moschops(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(moschops);
                 break;
             case "onyc":
-            Onyc onyc = new Onyc(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Onyc onyc = new Onyc(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(onyc);
                 break;
             case "otter":
-            Otter otter = new Otter(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Otter otter = new Otter(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(otter);
                 break;
             case "oviraptor":
-            Oviraptor oviraptor = new Oviraptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Oviraptor oviraptor = new Oviraptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(oviraptor);
                 break;
             case "ovis":
-            Ovis ovis = new Ovis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Ovis ovis = new Ovis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(ovis);
                 break;
             case "pachy":
-            Pachy pachy = new Pachy(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pachy pachy = new Pachy(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pachy);
                 break;
             case "pachyrhinosaurus":
-            Pachyrhinosaurus pachyrhinosaurus = new Pachyrhinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pachyrhinosaurus pachyrhinosaurus = new Pachyrhinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pachyrhinosaurus);
                 break;
             case "paraceratherium":
-            Paraceratherium paraceratherium = new Paraceratherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Paraceratherium paraceratherium = new Paraceratherium(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(paraceratherium);
                 break;
             case "parasaur":  
-            Parasaur parasaur = new Parasaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Parasaur parasaur = new Parasaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(parasaur);
                 break;
             case "pegomastax":
-            Pegomastax pegomastax = new Pegomastax(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pegomastax pegomastax = new Pegomastax(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pegomastax);
                 break;
             case "pelagornis":
-            Pelagornis pelagornis = new Pelagornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pelagornis pelagornis = new Pelagornis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pelagornis);
                 break;
             case "phiomia":
-            Phiomia phiomia = new Phiomia(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Phiomia phiomia = new Phiomia(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(phiomia);
                 break;
             case "plesiosaur":
-            Plesiosaur plesiosaur = new Plesiosaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Plesiosaur plesiosaur = new Plesiosaur(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(plesiosaur);
                 break;
             case "procoptodon":
-            Procoptodon procoptodon = new Procoptodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Procoptodon procoptodon = new Procoptodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(procoptodon);
                 break;
             case "pteranodon":  
-            Pteranodon pteranodon = new Pteranodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pteranodon pteranodon = new Pteranodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pteranodon);
                 break;
             case "pulmonoscorpius":
-            Pulmonoscorpius pulmonoscorpius = new Pulmonoscorpius(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Pulmonoscorpius pulmonoscorpius = new Pulmonoscorpius(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(pulmonoscorpius);
                 break;
             case "purlovia":
-            Purlovia purlovia = new Purlovia(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Purlovia purlovia = new Purlovia(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(purlovia);
                 break;
             case "quetzal":
-            Quetzal quetzal = new Quetzal(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Quetzal quetzal = new Quetzal(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(quetzal);
                 break;
             case "raptor":  
-            Raptor raptor = new Raptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Raptor raptor = new Raptor(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(raptor);
                 break;
             case "rex":  
-            Rex rex = new Rex(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Rex rex = new Rex(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(rex);
                 break;
             case "sabertooth":
-            Sabertooth sabertooth = new Sabertooth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Sabertooth sabertooth = new Sabertooth(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(sabertooth);
                 break;
             case "sarco":
-            Sarco sarco = new Sarco(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Sarco sarco = new Sarco(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(sarco);
                 break;
             case "spinosaurus":
-            Spinosaurus spinosaurus = new Spinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Spinosaurus spinosaurus = new Spinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(spinosaurus);
                 break;
             case "stegosaurus":
-            Stegosaurus stegosaurus = new Stegosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Stegosaurus stegosaurus = new Stegosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(stegosaurus);
                 break;
             case "tapejara":
-            Tapejara tapejara = new Tapejara(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Tapejara tapejara = new Tapejara(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(tapejara);
                 break;
             case "terror bird":
-            TerrorBird terrorBird = new TerrorBird(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            TerrorBird terrorBird = new TerrorBird(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(terrorBird);
                 break;
             case "therizinosaurus":
-            Therizinosaurus therizinosaurus = new Therizinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Therizinosaurus therizinosaurus = new Therizinosaurus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(therizinosaurus);
                 break;
             case "thylacoleo":
-            Thylacoleo thylacoleo = new Thylacoleo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Thylacoleo thylacoleo = new Thylacoleo(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(thylacoleo);
                 break;
             case "titanoboa":
-            Titanoboa titanoboa = new Titanoboa(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Titanoboa titanoboa = new Titanoboa(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(titanoboa);
                 break;
             case "triceratops":
-            Triceratops triceratops = new Triceratops(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Triceratops triceratops = new Triceratops(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(triceratops);
                 break;
             case "troodon":
-            Troodon troodon = new Troodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Troodon troodon = new Troodon(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(troodon);
                 break;
             case "tusoteuthis":
-            Tusoteuthis tusoteuthis = new Tusoteuthis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Tusoteuthis tusoteuthis = new Tusoteuthis(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(tusoteuthis);
                 break;
             case "woolly rhino":
-            WoollyRhino woollyRhino = new WoollyRhino(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            WoollyRhino woollyRhino = new WoollyRhino(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(woollyRhino);
                 break;
             case "yutyrannus":
-            Yutyrannus yutyrannus = new Yutyrannus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp);
+            Yutyrannus yutyrannus = new Yutyrannus(n, sp, gen, hp, stam, oxy, f, w, mel, mov, torp, v);
             tames.add(yutyrannus);
                 break;
             default:
