@@ -157,7 +157,7 @@ public class GameFrame extends JFrame implements ActionListener {
             creatureTorpor, creatureVariety );
 
             //Temp section to generate bunch of dino's for testing
-            /*currentWorld.createCreature("Bothoth", "Raptor", 'M', 100, 100, 100, 100, 100, 100, 100, 100, Variation.REGULAR);
+            /* currentWorld.createCreature("Bothoth", "Raptor", 'M', 100, 100, 100, 100, 100, 100, 100, 100, Variation.REGULAR);
             currentWorld.createCreature("Bathoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100, Variation.ABERRANT);
             currentWorld.createCreature("Baahoth", "Raptor", 'F', 100, 100, 100, 100, 100, 100, 100, 100, Variation.REGULAR);
             currentWorld.createCreature("rthoth", "Allosaurus", 'F', 100, 100, 100, 100, 100, 100, 100, 100, Variation.REGULAR);
@@ -166,7 +166,6 @@ public class GameFrame extends JFrame implements ActionListener {
             currentWorld.createCreature("Dactot", "dodo", 'f', 100, 100, 100, 100, 100, 100, 100, 100, Variation.R);
             currentWorld.createCreature("rotehtu", "dodo", 'M', 100, 100, 100, 100, 100, 100, 100, 100, Variation.X);
             currentWorld.createCreature("anote", "dodo", 'F', 100, 100, 100, 100, 100, 100, 100, 100, Variation.REGULAR);*/
-            
             System.out.println(creatureName);   
 
             ((WorldPanel) parent).removeCreateCreatureTextFields();
