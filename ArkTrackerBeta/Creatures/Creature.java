@@ -15,6 +15,12 @@ public class Creature implements Serializable, Comparable<Creature>{
     private double movement;
     private double torpor;
 
+    //perhaps make a Variation Enum Class for constant variables?
+    private String Variation;
+    private boolean aberrantVariant;
+    private boolean tekVariant;
+    private boolean RVariant;
+
     public Creature(String n, String sp, char gen, double health, double stam, double oxy, 
     double f, double w, double mel, double move, double torp){
         name = n;
@@ -28,6 +34,9 @@ public class Creature implements Serializable, Comparable<Creature>{
         melee = mel;
         movement = move;
         torpor = torp;
+        aberrantVariant = false;
+        tekVariant = false;
+        RVariant = false;
     }
 
 
@@ -99,12 +108,24 @@ public class Creature implements Serializable, Comparable<Creature>{
         return torpor;
     } public void setTorpor(double torpor) {
         this.torpor = torpor;
+    } public void setAberrantVariant(boolean aberrantVariant) {
+        this.aberrantVariant = aberrantVariant;
+    } public void setTekVariant(boolean tekVariant) {
+        this.tekVariant = tekVariant;
+    } public boolean getAberrantVariant(){
+        return aberrantVariant;
+    } public boolean getTekVariant(){
+        return tekVariant;
+    } public boolean getRVariant(){
+        return RVariant;
+    } public void setRVariant(boolean rVariant) {
+        RVariant = rVariant;
     }
 
 
     @Override
     public int compareTo(Creature o) {
-        return 0;
+        return 0; // species.compareTo(o.species);
     }
 
 }
