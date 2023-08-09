@@ -5,8 +5,6 @@ package arktrackerv4;
 
 import javax.swing.JFrame;
 
-import org.checkerframework.checker.units.qual.C;
-
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
