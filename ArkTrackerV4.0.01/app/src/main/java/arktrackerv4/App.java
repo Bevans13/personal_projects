@@ -24,7 +24,7 @@ public class App extends JFrame implements ActionListener {
         // Instantiates & Sets layout of JFrame to cardLayout
         cardLayout = new CardLayout();
         setLayout(cardLayout);
-
+        
 
         //End Contstructor with JFrame Settings
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
