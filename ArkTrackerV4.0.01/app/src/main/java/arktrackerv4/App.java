@@ -13,6 +13,9 @@ public class App extends JFrame implements ActionListener {
     
     CardLayout cardLayout;
 
+    //Declare & Instantiate each world
+    World testWorld = new World();
+
     public static void main(String[] args) {
         //Method to run application and open App Window
         App ArkTracker = new App("Ark Tracker V4");
@@ -24,12 +27,15 @@ public class App extends JFrame implements ActionListener {
         // Instantiates & Sets layout of JFrame to cardLayout
         cardLayout = new CardLayout();
         setLayout(cardLayout);
-        
+
+        //Adds World Panels to the App Frame
+        //TODO REMOVE
+        add(testWorld, "test World");
+
 
         //End Contstructor with JFrame Settings
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
-        setLocationByPlatform(true);
         setVisible(true);
         //Prevents Flickering issue that used to occur
         requestFocus();
